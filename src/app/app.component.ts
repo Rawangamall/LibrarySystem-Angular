@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'librarysystem';
+
+  isDashboard: boolean;
+  constructor() {
+    if (window.location.href.includes('web')) {
+      this.isDashboard = true;
+    } else {
+      this.isDashboard = false;
+    }
+  }
+
 }
