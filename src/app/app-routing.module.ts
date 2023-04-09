@@ -32,6 +32,8 @@ import { Error403Component } from './Layout/pages/errors/error403/error403.compo
 import { Error500Component } from './Layout/pages/errors/error500/error500.component';
 //import Error503Component
 import { Error503Component } from './Layout/pages/errors/error503/error503.component';
+//import login
+import { LoginappComponent } from './loginapp/loginapp.component';
 
 
 const routes: Routes = [
@@ -51,6 +53,7 @@ const routes: Routes = [
   { path: 'error403', component: Error403Component },
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
+  { path: 'login', component: LoginappComponent },
   
 
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+//import router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboardapp',
@@ -9,7 +10,10 @@ import { Component } from '@angular/core';
 export class DashboardappComponent  {
 
 
-  constructor() { }
+  constructor(
+    //inject router
+    public router:Router
+  ) { }
   
  
  
