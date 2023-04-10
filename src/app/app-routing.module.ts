@@ -37,6 +37,7 @@ import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.c
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 //import login
 import { LoginappComponent } from './loginapp/loginapp.component';
+import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,8 @@ const routes: Routes = [
   { path: 'bookedit/:id', component: EditbookComponent },
   { path: 'bookdetails/:id', component: BookdetailsComponent },
   { path: 'operation', component: OperationComponent },
+  //{ path: 'Book/read/:_id', component: OperationComponent },
+  { path: 'Book/borrow/:id', component: BookOperationBorrowComponent },
   { path: 'error400', component: Error400Component },
   { path: 'error404', component: Error404Component },
   { path: 'error403', component: Error403Component },

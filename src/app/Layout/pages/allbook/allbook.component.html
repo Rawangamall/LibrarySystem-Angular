@@ -76,8 +76,8 @@
                                 </div>
                                 <!-- button -->
                                 <div class="new-arrival-content position-relative">
-                                    <a href="bookdetails" class="btn btn-primary text-white">Read </a>
-                                    <a href="bookdetails" class="btn btn-primary text-white">Borrow </a>
+                                    <a routerLink="/Book/read/{{item._id}}" class="btn btn-primary text-white">Read </a>
+                                    <a routerLink="/Book/borrow/{{item._id}}" class="btn btn-primary text-white">Borrow </a>
                                     <td><button class="btn btn-danger" (click)="delete(item._id)"><i class="fa fa-trash mr-2"></i> DELETE</button></td>
                                 </div>
                                 
