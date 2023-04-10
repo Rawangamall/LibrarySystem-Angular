@@ -8,6 +8,9 @@ import { Book }  from '../models/book';
   providedIn: 'root'
 })
 export class BookService {
+  upload(file: File) {
+    throw new Error('Method not implemented.');
+  }
   baseurl="http://localhost:8080/Book";
   baseurl2="http://localhost:8080/Book/add";
   baseurl3="http://localhost:8080/Book/update";
@@ -42,8 +45,8 @@ export class BookService {
   }
 
   constructor(public http:HttpClient, public router:Router) {
-    this.http.get<Book>("http://localhost:8080/Book/2").subscribe(a=>
-      console.log(a));
+    //  this.http.get<Book>("http://localhost:8080/Book/2").subscribe(a=>
+    //    console.log(a));
   }
 }
 

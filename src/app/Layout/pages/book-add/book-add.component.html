@@ -36,7 +36,7 @@
                                                     class="form-control">
                                             </div>
                                             <div class="form-group col-md-6">
-                                            <input type="text" placeholder="Publishing Date" [(ngModel)]="book.publishingDate" [ngModelOptions]="{standalone: true}"
+                                            <input type="date" placeholder="Publishing Date" [(ngModel)]="book.publishingDate" [ngModelOptions]="{standalone: true}"
                                                 class="form-control">
                                             </div>
                                         </div>
@@ -58,6 +58,10 @@
                                             <div class="form-group col-md-6">
                                             <input type="text" placeholder="Number Of Copies" [(ngModel)]="book.noOfCopies" [ngModelOptions]="{standalone: true}"
                                                 class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <input type="file" placeholder="Image" [(ngModel)]="book.image" [ngModelOptions]="{standalone: true}"
+                                                 class="form-control">
                                             </div>
                                         </div>
                                         <button class="btn btn-primary" (click)="save()" type="submit">Submit</button>

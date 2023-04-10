@@ -74,9 +74,7 @@
         <div class="card">
           <div class="card-body">
             <div class="media align-items-center">
-              <div
-                class="d-inline-block position-relative donut-chart-sale mr-4"
-              >
+              <div class="d-inline-block position-relative donut-chart-sale mr-4">
                 <span
                   class="donut2"
                   data-peity='{ "fill": ["rgb(246, 67, 67, 1)", "rgba(241, 241, 241,1)"],   "innerRadius": 45, "radius": 10}'
@@ -84,9 +82,9 @@
                 >
                 <small class="text-black">62%</small>
               </div>
-              <div class="media-body">
-                <h2 class="fs-36 text-black font-w700">887</h2>
-                <p class="fs-18 mb-0 text-black font-w500">read</p>
+              <div class="media-body"  *ngFor="let mostBorrowed of mostBorrowedBooks | slice:0:5">
+                <h2 class="fs-36 text-black font-w700">{{mostBorrowed.title}}</h2>
+                <p class="fs-18 mb-0 text-black font-w500">By: {{mostBorrowed.author}}</p>
               </div>
             </div>
           </div>
@@ -121,132 +119,23 @@
               <div class="card-header d-sm-flex d-block pb-0 border-0">
                 <div class="mr-auto pr-3">
                   <h4 class="text-black fs-24 font-w700">
-                    Library Finance
+                    New Arrived Books
                   </h4>
                 </div>
-                <div
-                  class="d-flex align-items-center justify-content-between"
-                >
-                  <select class="form-control style-1 default-select mr-3">
-                    <option>Daily</option>
-                    <option>Weekly</option>
-                    <option>Monthly</option>
-                  </select>
-                  <div class="dropdown">
-                    <div class="btn-link" data-toggle="dropdown">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="24px"
-                        height="24px"
-                        viewBox="0 0 24 24"
-                        version="1.1"
-                      >
-                        <g
-                          stroke="none"
-                          stroke-width="1"
-                          fill="none"
-                          fill-rule="evenodd"
-                        >
-                          <rect x="0" y="0" width="24" height="24"></rect>
-                          <circle
-                            fill="#000000"
-                            cx="12"
-                            cy="5"
-                            r="2"
-                          ></circle>
-                          <circle
-                            fill="#000000"
-                            cx="12"
-                            cy="12"
-                            r="2"
-                          ></circle>
-                          <circle
-                            fill="#000000"
-                            cx="12"
-                            cy="19"
-                            r="2"
-                          ></circle>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        >View Detail</a
-                      >
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        >Edit</a
-                      >
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        >Delete</a
-                      >
-                    </div>
-                  </div>
-                </div>
               </div>
-
               <div class="card-body pb-0">
                 <div class="d-flex flex-wrap">
-                  <div class="media align-items-center mb-3">
+                  <div class="media align-items-center mb-3"  *ngFor="let item of newArrivedBooks | slice:0:5">
                     <div
-                      class="d-inline-block position-relative mr-sm-3 mr-2"
-                    >
-                      <svg
-                        class="circle-svg-ico"
-                        width="56"
-                        height="56"
-                        viewBox="0 0 56 56"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28ZM8.4 28C8.4 38.8248 17.1752 47.6 28 47.6C38.8248 47.6 47.6 38.8248 47.6 28C47.6 17.1752 38.8248 8.4 28 8.4C17.1752 8.4 8.4 17.1752 8.4 28Z"
-                          fill="#F5F5F5"
-                        />
-                        <path
-                          class="primary-svg-path"
-                          d="M28 0C32.6046 5.49096e-08 37.1382 1.1356 41.1991 3.3062C45.26 5.47681 48.723 8.61542 51.2811 12.444C53.8393 16.2726 55.4138 20.6731 55.8652 25.2555C56.3165 29.838 55.6307 34.461 53.8686 38.7151C52.1065 42.9693 49.3224 46.7231 45.763 49.6443C42.2036 52.5654 37.9787 54.5637 33.4625 55.462C28.9464 56.3603 24.2784 56.131 19.872 54.7943C15.4657 53.4577 11.457 51.055 8.20102 47.799L14.1407 41.8593C16.4199 44.1385 19.226 45.8204 22.3104 46.756C25.3949 47.6917 28.6625 47.8522 31.8238 47.2234C34.9851 46.5946 37.9425 45.1958 40.4341 43.151C42.9257 41.1062 44.8746 38.4785 46.108 35.5006C47.3415 32.5227 47.8216 29.2866 47.5056 26.0789C47.1897 22.8711 46.0875 19.7908 44.2968 17.1108C42.5061 14.4308 40.082 12.2338 37.2394 10.7143C34.3967 9.19492 31.2232 8.4 28 8.4V0Z"
-                          fill="#1E33F2"
-                        />
-                      </svg>
+                      class="d-inline-block position-relative mr-sm-3 mr-2">
+                      <img class="circle-svg-ico" width="46" height="46" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/new-arrivals.png">
                     </div>
                     <div class="media-body mr-sm-4 mr-3">
                       <h2 class="fs-24 text-black font-w700 mb-0">
-                        $23,445
+                        {{item.title}}
                       </h2>
                       <p class="fs-16 mb-0 text-black font-w400">
-                        Total Read
-                      </p>
-                    </div>
-                  </div>
-                  <div class="media align-items-center mb-3">
-                    <div
-                      class="d-inline-block position-relative mr-sm-3 mr-2"
-                    >
-                      <svg
-                        class="circle-svg-ico"
-                        width="56"
-                        height="56"
-                        viewBox="0 0 56 56"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28ZM8.4 28C8.4 38.8248 17.1752 47.6 28 47.6C38.8248 47.6 47.6 38.8248 47.6 28C47.6 17.1752 38.8248 8.4 28 8.4C17.1752 8.4 8.4 17.1752 8.4 28Z"
-                          fill="#F5F5F5"
-                        />
-                        <path
-                          d="M28 0C32.6373 5.52994e-08 37.202 1.15177 41.2842 3.35188C45.3664 5.55199 48.8382 8.73155 51.3879 12.605C53.9376 16.4785 55.4853 20.9246 55.8921 25.544C56.2988 30.1635 55.5519 34.8116 53.7183 39.071L46.0028 35.7497C47.2863 32.7681 47.8092 29.5144 47.5245 26.2808C47.2397 23.0472 46.1563 19.9349 44.3715 17.2235C42.5868 14.5121 40.1565 12.2864 37.2989 10.7463C34.4414 9.20624 31.2461 8.4 28 8.4L28 0Z"
-                          fill="#FF5045"
-                        />
-                      </svg>
-                    </div>
-                    <div class="media-body mr-sm-4 mr-0">
-                      <h2 class="fs-24 text-black font-w700 mb-0">
-                        $1,564
-                      </h2>
-                      <p class="fs-16 mb-0 text-black font-w400">
-                        Total Borrow
+                        by: {{item.author}}
                       </p>
                     </div>
                   </div>
@@ -292,4 +181,24 @@
         </div>
       </div>
     </div>
+    <!-- <table class="table table-primary">
+      <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Number od borrowed</th>
+              <th scope="col">noOfCopies</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of mostBorrowedBooks">
+              <td scope="row">{{item._id}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.author}}</td>
+              <td>{{item.noBorrowed}}</td>
+              <td>{{item.noOfCopies}}</td>
+          </tr>
+      </tbody>
+  </table> -->
   </div>
