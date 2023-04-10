@@ -30,6 +30,7 @@ import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
 import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
+import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
     BookAddComponent,
     EmployeeAddComponent,
     EmployeeEditComponent,
+    BookOperationBorrowComponent,
   ],
   imports: [
     HttpClientModule,
