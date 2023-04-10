@@ -4,19 +4,18 @@ import { Operation } from 'src/app/models/operation';
 import { OperationService } from 'src/app/services/operation.service';
 
 @Component({
-  selector: 'app-book-operation-borrow',
-  templateUrl: './book-operation-borrow.component.html',
-  styleUrls: ['./book-operation-borrow.component.css']
+  selector: 'app-book-operation-read',
+  templateUrl: './book-operation-read.component.html',
+  styleUrls: ['./book-operation-read.component.css']
 })
-export class BookOperationBorrowComponent {
-  bookOper:Operation=new Operation(0,60,1,false,"");
+export class BookOperationReadComponent {
+  bookOper:Operation=new Operation(0,21,28,false,"");
   constructor (public bookOperService:OperationService, private route: ActivatedRoute, public router:Router) {
   }
-  borrow(){
+  read(){
     this.route.params.subscribe((params: Params) => {
-      const bookId = params['id']
-      console.log(bookId);
-      this.bookOperService.borrowBook(bookId,this.bookOper).subscribe(data => {
+      const bookId = params['_id']
+      this.bookOperService.readBook(bookId,this.bookOper).subscribe(data => {
         this.router.navigateByUrl('/allbook');
       })
     });
