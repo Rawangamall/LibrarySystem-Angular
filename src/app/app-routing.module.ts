@@ -6,6 +6,8 @@ import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component
 import { MemberComponent } from './Layout/pages/member/member.component';
 //import editmember
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
+//import addmember
+import { MemberAddComponent } from './Layout/pages/member-add/member-add.component';
 //import admin
 import { AdminComponent } from './Layout/pages/admin/admin.component';
 //import employee
@@ -39,7 +41,9 @@ import { LoginappComponent } from './loginapp/loginapp.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'member', component: MemberComponent },
+  { path: 'member', component: MemberComponent },
   { path: 'editmember', component: EditmemberComponent },
+  { path: 'member-add', component: MemberAddComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'profile', component: ProfileComponent },
