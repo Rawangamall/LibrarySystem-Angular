@@ -31,6 +31,7 @@ import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
 import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
+import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borr
     EmployeeAddComponent,
     EmployeeEditComponent,
     BookOperationBorrowComponent,
+    BookOperationReadComponent,
   ],
   imports: [
     HttpClientModule,

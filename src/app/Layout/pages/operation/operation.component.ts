@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { BookOperations } from 'src/app/models/operation';
+import { Operation } from 'src/app/models/operation';
 import { OperationService } from 'src/app/services/operation.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { OperationService } from 'src/app/services/operation.service';
   styleUrls: ['./operation.component.css']
 })
 export class OperationComponent {
-  bookOper:BookOperations[]=[];
+  bookOper:Operation[]=[];
   constructor(public bookService:OperationService, public router:Router){
   }
   ngOnInit(){
@@ -18,14 +18,14 @@ export class OperationComponent {
       return data;
     })
   }
-  returnBorrowBook(id:number, bookOper:BookOperations){
+  returnBorrowBook(id:number, bookOper:Operation){
     this.bookService.returnBookBorrow(id,bookOper).subscribe(data=>{
       this.bookOper = data;
       location.reload();
       return data;
     })
   }
-  returnReadBook(id:number, bookOper:BookOperations){
+  returnReadBook(id:number, bookOper:Operation){
     this.bookService.returnBookRead(id,bookOper).subscribe(data=>{
       this.bookOper = data;
       location.reload();
