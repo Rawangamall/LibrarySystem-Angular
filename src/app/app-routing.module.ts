@@ -35,6 +35,8 @@ import { Error503Component } from './Layout/pages/errors/error503/error503.compo
 import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
 import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
+//import login
+import { LoginappComponent } from './loginapp/loginapp.component';
 
 
 const routes: Routes = [
@@ -57,7 +59,7 @@ const routes: Routes = [
   { path: 'error403', component: Error403Component },
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
-
+  { path: 'login', component: LoginappComponent },
 ];
 
 @NgModule({

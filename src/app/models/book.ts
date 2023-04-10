@@ -3,6 +3,5 @@ export class Book {
         public publisher:string, public noOfCopies:number, public available:Boolean, public category:string,
         public pages:number, public edition:string, public publishingDate:string,
         public noOfCurrentBorrowed:number,public noOfCurrentReading:number, public noBorrowed:number,
-        public noReading:number, public createdAt:string, public updatedAt:string,public image:string){   
-        }
+        public noReading:number, public createdAt:string, public updatedAt:string,public image:string){}
 }

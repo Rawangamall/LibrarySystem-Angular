@@ -40,8 +40,10 @@ export class BookService {
   mostReadingBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.mostReadingURL);
   }
+
   constructor(public http:HttpClient, public router:Router) {
     this.http.get<Book>("http://localhost:8080/Book/2").subscribe(a=>
       console.log(a));
   }
 }
+
