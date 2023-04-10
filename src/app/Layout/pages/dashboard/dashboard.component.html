@@ -9,10 +9,6 @@
               <div class="media-body mr-3">
                 <h2 class="text-black font-w700">9,825</h2>
                 <p class="mb-0 text-black font-w600">Total Member</p>
-                <span
-                  ><b class="text-success mr-1">+0,5%</b>than last
-                  month</span
-                >
               </div>
               <div class="d-inline-block">
                 <svg
@@ -38,11 +34,8 @@
           <div class="card-body">
             <div class="media align-items-center">
               <div class="media-body mr-3">
-                <h2 class="text-black font-w700">1500</h2>
-                <p class="mb-0 text-black font-w600">Total Book</p>
-                <span
-                  ><b class="text-success mr-1">10%</b>than last month</span
-                >
+                <h2 class="text-black font-w700">{{books.length}}</h2>
+                <p class="mb-0 text-black font-w600">Total Books</p>
               </div>
               <div class="d-inline-block">
                 <svg
@@ -58,55 +51,10 @@
                   />
                   <path
                     d="M56.4844 46.1441V26.2285L52.9688 27.9863V46.1441C50.9271 46.8722 49.4531 48.805 49.4531 51.0937V54.6093C49.4531 55.5809 50.2393 56.3671 51.2109 56.3671H58.2422C59.2138 56.3671 60 55.5809 60 54.6093V51.0937C60 48.805 58.526 46.8722 56.4844 46.1441Z"
-                    fill="#1E33F2"
-                  />
-                  <path
-                    d="M32.3586 38.2329C31.6308 38.5967 30.8154 38.789 30 38.789C29.1846 38.789 28.3692 38.5967 27.6414 38.2329L10.5469 29.7441V33.5156C10.5469 40.4147 19.1578 45.8203 30 45.8203C40.8422 45.8203 49.4531 40.4147 49.4531 33.5156V29.7441L32.3586 38.2329Z"
-                    fill="#1E33F2"
-                  />
+                    fill="#1E33F2"/>
+                  <path d="M32.3586 38.2329C31.6308 38.5967 30.8154 38.789 30 38.789C29.1846 38.789 28.3692 38.5967 27.6414 38.2329L10.5469 29.7441V33.5156C10.5469 40.4147 19.1578 45.8203 30 45.8203C40.8422 45.8203 49.4531 40.4147 49.4531 33.5156V29.7441L32.3586 38.2329Z"
+                    fill="#1E33F2"/>
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-xxl-6 col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="media align-items-center">
-              <div class="d-inline-block position-relative donut-chart-sale mr-4">
-                <span
-                  class="donut2"
-                  data-peity='{ "fill": ["rgb(246, 67, 67, 1)", "rgba(241, 241, 241,1)"],   "innerRadius": 45, "radius": 10}'
-                  >5/8</span
-                >
-                <small class="text-black">62%</small>
-              </div>
-              <div class="media-body"  *ngFor="let mostBorrowed of mostBorrowedBooks | slice:0:5">
-                <h2 class="fs-36 text-black font-w700">{{mostBorrowed.title}}</h2>
-                <p class="fs-18 mb-0 text-black font-w500">By: {{mostBorrowed.author}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-xxl-6 col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="media align-items-center">
-              <div
-                class="d-inline-block position-relative donut-chart-sale mr-4"
-              >
-                <span
-                  class="donut2"
-                  data-peity='{ "fill": ["rgb(30, 51, 242, 1)", "rgba(241, 241, 241,1)"],   "innerRadius": 45, "radius": 10}'
-                  >3/8</span
-                >
-                <small class="text-black">38%</small>
-              </div>
-              <div class="media-body mr-3">
-                <h2 class="fs-36 text-black font-w700">175</h2>
-                <p class="fs-18 mb-0 text-black font-w500">borrow</p>
               </div>
             </div>
           </div>
@@ -119,6 +67,7 @@
               <div class="card-header d-sm-flex d-block pb-0 border-0">
                 <div class="mr-auto pr-3">
                   <h4 class="text-black fs-24 font-w700">
+                    <img class="circle-svg-ico" width="40" height="40" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/new-arrivals.png">
                     New Arrived Books
                   </h4>
                 </div>
@@ -128,14 +77,14 @@
                   <div class="media align-items-center mb-3"  *ngFor="let item of newArrivedBooks | slice:0:5">
                     <div
                       class="d-inline-block position-relative mr-sm-3 mr-2">
-                      <img class="circle-svg-ico" width="46" height="46" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/new-arrivals.png">
+                      <img class="circle-svg-ico" width="36" height="36" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/arrow.png">
                     </div>
                     <div class="media-body mr-sm-4 mr-3">
                       <h2 class="fs-24 text-black font-w700 mb-0">
                         {{item.title}}
                       </h2>
                       <p class="fs-16 mb-0 text-black font-w400">
-                        by: {{item.author}}
+                        By: {{item.author}}
                       </p>
                     </div>
                   </div>
@@ -147,36 +96,77 @@
         </div>
       </div>
       <div class="col-xl-6">
-        <div class="card widget-media">
-          <div class="card-header border-0 pb-0">
-            <h4 class="text-black fs-24 font-w700">Library Performance</h4>
-            <div class="dropdown ml-auto text-right">
-              <div class="btn-link" data-toggle="dropdown">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  width="24px"
-                  height="24px"
-                  viewBox="0 0 24 24"
-                  version="1.1"
-                >
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <rect x="0" y="0" width="24" height="24"></rect>
-                    <circle fill="#000000" cx="12" cy="5" r="2"></circle>
-                    <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                    <circle fill="#000000" cx="12" cy="19" r="2"></circle>
-                  </g>
-                </svg>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-header d-sm-flex d-block pb-0 border-0">
+                <div class="mr-auto pr-3">
+                  <h4 class="text-black fs-24 font-w700">
+                    <img class="circle-svg-ico" width="36" height="36" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/most-popular.png">
+                    Most Popular Books
+                  </h4>
+                </div>
+              </div>
+              <div class="card-body pb-0">
+                <div class="d-flex flex-wrap">
+                  <div class="media align-items-center mb-3"  *ngFor="let mostPopular of mostPopularBooks | slice:0:5">
+                    <div
+                      class="d-inline-block position-relative mr-sm-3 mr-2">
+                      <img class="circle-svg-ico" width="36" height="36" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/arrow.png">
+                    </div>
+                    <div class="media-body mr-sm-4 mr-3">
+                      <h2 class="fs-24 text-black font-w700 mb-0">
+                        {{mostPopular.title}}
+                      </h2>
+                      <p class="fs-16 mb-0 text-black font-w400">
+                        <b>{{mostPopular.borrowCount}}</b> Operations
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div id="chartBarRunning"></div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-xxl-6 col-sm-6">
+        <div class="card">
+          <div class="card-header d-sm-flex d-block pb-0 border-0">
+            <div class="mr-auto pr-3">
+              <h4 class="text-black fs-24 font-w700">
+                <img class="circle-svg-ico" width="40" height="40" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/borrow.png">
+                Most Borrowed Books
+              </h4>
+            </div>
+          </div>
           <div class="card-body">
-            <div id="activityLine" class="area-theme"></div>
+            <div class="media align-items-center" *ngFor="let mostBorrowed of mostBorrowedBooks | slice:0:5">
+              <div class="media-body">
+                <h2 class="fs-36 text-black font-w700"><img src="../../../../assets/images/bookOperation/most-borrowed.png" width="20" height="20"> {{mostBorrowed.title}}</h2>
+                <p class="fs-12 mb-0 text-black font-w20">Borrowed <b>{{mostBorrowed.borrowCount}}</b> times</p><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-xxl-6 col-sm-6">
+        <div class="card">
+          <div class="card-header d-sm-flex d-block pb-0 border-0">
+            <div class="mr-auto pr-3">
+              <h4 class="text-black fs-24 font-w700">
+                <img class="circle-svg-ico" width="40" height="40" viewBox="0 0 56 56" fill="none" src="../../../../assets/images/bookOperation/read2.png">
+                &nbsp;Most Reading Books
+              </h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="media align-items-center" *ngFor="let mostReading of mostReadingBooks | slice:0:5">
+              <div class="media-body">
+                <h2 class="fs-36 text-black font-w700"><img src="../../../../assets/images/bookOperation/most-borrowed.png" width="20" height="20"> {{mostReading.title}}</h2>
+                <p class="fs-12 mb-0 text-black font-w20">Read <b>{{mostReading.borrowCount}}</b> times</p><br>
+              </div>
+            </div>
           </div>
         </div>
       </div>

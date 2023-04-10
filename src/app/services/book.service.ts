@@ -17,7 +17,8 @@ export class BookService {
   newArrivedURL="http://localhost:8080/Book/newArrivedBooks";
   mostBorrowedURL="http://localhost:8080/Bookoper/mostBorrowedBooks";
   mostReadingURL="http://localhost:8080/Bookoper/mostReadingBooks";
-  
+  mostPopularURL="http://localhost:8080/Bookoper/mostPopularBooks";
+
   getAllBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.baseurl);
   }
@@ -36,6 +37,9 @@ export class BookService {
   }
   newArrivedBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.newArrivedURL);
+  }
+  mostPopularBooks(): Observable<Book[]>{
+    return this.http.get<Book[]>(this.mostPopularURL);
   }
   mostBorrowedBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.mostBorrowedURL);

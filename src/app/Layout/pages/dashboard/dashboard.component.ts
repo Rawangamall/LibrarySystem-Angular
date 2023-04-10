@@ -12,16 +12,36 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class DashboardComponent {
   newArrivedBooks:Book[]=[];
-  mostBorrowedBooks:Book[]=[];
+  mostPopularBooks:any[]=[];
+  mostBorrowedBooks:any[]=[];
+  mostReadingBooks:any[]=[];
+  books:Book[]=[];
   constructor(public bookService:BookService, public router:Router){
   }
   ngOnInit(){
+    // New Arrived Books
     this.bookService.newArrivedBooks().subscribe(data=>{
       this.newArrivedBooks = data;
       return data;
+    })
+    // Most Popular Books
+    this.bookService.mostPopularBooks().subscribe(data=>{
+      this.mostPopularBooks = data;
+      return data;
     });
+    // Most Borrowed Books
     this.bookService.mostBorrowedBooks().subscribe(data=>{
       this.mostBorrowedBooks = data;
+      return data;
+    })
+    // Most Reading Books
+    this.bookService.mostReadingBooks().subscribe(data=>{
+      this.mostReadingBooks = data;
+      return data;
+    })
+    // Count of Books
+    this.bookService.getAllBooks().subscribe(data=>{
+      this.books = data;
       return data;
     })
   }
