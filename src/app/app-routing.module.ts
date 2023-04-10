@@ -32,6 +32,9 @@ import { Error403Component } from './Layout/pages/errors/error403/error403.compo
 import { Error500Component } from './Layout/pages/errors/error500/error500.component';
 //import Error503Component
 import { Error503Component } from './Layout/pages/errors/error503/error503.component';
+import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
+import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 
 
 const routes: Routes = [
@@ -40,23 +43,20 @@ const routes: Routes = [
   { path: 'editmember', component: EditmemberComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'employee', component: EmployeeComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'employee/add', component: EmployeeAddComponent },
+  { path: 'profile/:id', component: ProfileComponent },
   { path: 'allbook', component: AllbookComponent },
+  { path: 'Book/add', component: BookAddComponent },
+  { path: 'employeeEdit/:_id', component: EmployeeEditComponent },
   { path: 'bookavilablty', component: BookavilabltyComponent },
-  { path: 'bookedit', component: EditbookComponent },
-  { path: 'bookdetails', component: BookdetailsComponent },
+  { path: 'bookedit/:id', component: EditbookComponent },
+  { path: 'bookdetails/:id', component: BookdetailsComponent },
   { path: 'operation', component: OperationComponent },
   { path: 'error400', component: Error400Component },
   { path: 'error404', component: Error404Component },
   { path: 'error403', component: Error403Component },
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
-  
-
-
-
-
-
 
 ];
 

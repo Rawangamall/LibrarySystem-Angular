@@ -4,11 +4,11 @@ import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-employee-edit',
+  templateUrl: './employee-edit.component.html',
+  styleUrls: ['./employee-edit.component.css']
 })
-export class ProfileComponent {
+export class EmployeeEditComponent {
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
@@ -16,16 +16,16 @@ export class ProfileComponent {
   }
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
-      const empId = params['id']
+      const empId = params['_id']
       this.employeeService.getOneEmployee(empId).subscribe(data=>{
         this.emp = data;
       })
     });
   }
   update(){
-    this.employeeService.getOneEmployee(this.emp._id).subscribe(data => {
+    this.employeeService.updateEmployee(this.emp,this.emp._id).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('/Employees');
+      this.router.navigateByUrl('profile/'+this.emp._id);
     })
-  } 
+  }  
 }

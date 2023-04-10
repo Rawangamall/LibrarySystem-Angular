@@ -40,11 +40,12 @@
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                    <a href="add-book" class="btn btn-primary text-white">Add new book <i class="fa fa-upload"></i></a>
+                    <!-- <a href="/add-book" class="btn btn-primary text-white">Add new book <i class="fa fa-upload"></i></a> -->
+                    <a routerLink="/Book/add" class="btn btn-primary text-white">Add new book <i class="fa fa-upload"></i></a><br>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-lg-6">
+            <div class="col-md-12 col-lg-6"  *ngFor="let item of books">
                 <div class="card">
                     <div class="card-body">
                         <div class="row m-b-30">
@@ -57,7 +58,7 @@
                             </div>
                             <div class="col-md-7 col-xxl-12">
                                 <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
+                                    <h4><a href="bookdetails/{{item._id}}">{{item.title}}</a>
                                     </h4>
                                     <div class="comment-review star-rating">
                                         <ul>
@@ -67,25 +68,21 @@
                                             <li><i class="fa fa-star-half-empty"></i></li>
                                             <li><i class="fa fa-star-half-empty"></i></li>
                                         </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
+                                        
+                                        <p class="price">{{item.noOfCopies}} Copies Available</p>
                                     </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
+                                    <p class="item" *ngIf="item.available">Available Now <i class="fa fa-check-circle text-success"></i></p>
+                                    <p class="item" *ngIf="!item.available">Not Available <i class="fa fa-times-circle text-danger">
+                                    </i></p>
+                                    <p>Book ID: <span class="item">{{item._id}}</span> </p>
+                                    <p>Author: <span class="item">{{item.author}}</span></p>
+                                    <p>Publisher: <span class="item">{{item.publisher}}</span></p>
                                 </div>
                                 <!-- button -->
                                 <div class="new-arrival-content position-relative">
                                     <a href="bookdetails" class="btn btn-primary text-white">Read </a>
                                     <a href="bookdetails" class="btn btn-primary text-white">Borrow </a>
-
+                                    <td><button class="btn btn-danger" (click)="delete(item._id)"><i class="fa fa-trash mr-2"></i> DELETE</button></td>
                                 </div>
                                 
                                 
@@ -94,343 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-b-30">
-                            <div class="col-md-5 col-xxl-12">
-                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                                    <div class="new-arrivals-img-contnent">
-                                        <img class="img-fluid" src="assets/images/books/book1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-xxl-12">
-                                <div class="new-arrival-content position-relative">
-                                    <h4><a href="bookdetails">Book Name</a>
-                                    </h4>
-                                    <div class="comment-review star-rating">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                            <li><i class="fa fa-star-half-empty"></i></li>
-                                        </ul>
-                                        <span class="review-text">(34 opration) / </span><a
-                                            class="product-review" href="#" data-toggle="modal"
-                                            data-target="#reviewModal">reading and borrow</a>
-                                        <p class="price">18 copie Avilable</p>
-                                    </div>
-                                    <p>Availability: <span class="item"> for reading and borrow <i class="fa fa-check-circle text-success">
-                                                </i></span></p>
-                                    <p>book id: <span class="item">0405689</span> </p>
-                                    <p>Category: <span class="item">Testing</span></p>
-                                    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Cupiditate laborum est ipsam doloribus beatae praesentium ratione,
-                                        eveniet nisi rem voluptate. Quidem, dicta ullam. Cum excepturi molestias
-                                        tenetur iste minima quae?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
+                   
         </div>
     </div>
 </div>

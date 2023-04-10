@@ -26,7 +26,7 @@
                                 <div class="product-detail-content">
                                     <!--Product details-->
                                     <div class="new-arrival-content pr">
-                                        <h4>Book Name</h4>
+                                        <h4>{{book.title}}</h4>
                                         <div class="comment-review star-rating">
                                             <ul>
                                                 <li><i class="fa fa-star"></i></li>
@@ -35,38 +35,35 @@
                                                 <li><i class="fa fa-star-half-empty"></i></li>
                                                 <li><i class="fa fa-star-half-empty"></i></li>
                                             </ul>
-                                            <span class="review-text">(34 Oprarions) / </span><a
-                                                class="product-review" href="#" data-toggle="modal"
-                                                data-target="#reviewModal">Read And borrow</a>
+                                            <span class="review-text text-success" *ngIf="book.available">Available Now <i class="fa fa-check-circle text-success"></i></span>
+                                            <span class="review-text text-danger" *ngIf="!book.available">Not Available <i class="fa fa-times-circle text-danger"></i></span>                                        
+                                            
                                         </div>
                                         <div class="d-table mb-2">
-                                            <p class="price float-left d-block">15 copies Avalible</p>
-                                        </div>
-                                        <p>Availability: <span class="item"> For Read And Borrow<i
-                                                    class="fa fa-shopping-basket"></i></span>
-                                        </p>
-                                        <p>Book ID: <span class="item">0405689</span> </p>
-                                        <p>Auther: <span class="item">Auther1</span></p>
-                                        <p>Publisher: <span class="item">Publisher1</span></p>
-                                        <p>number of Copies: <span class="item">250</span></p>
-                                        <p>Edition: <span class="item">15</span></p>
+                                            <p class="price float-left d-block">15 Copies Available</p>
+                                        </div>edit
+                                        <p>Book ID: <span class="item">{{book._id}}</span> </p>
+                                        <p>Auther: <span class="item">{{book.author}}</span></p>
+                                        <p>Publisher: <span class="item">{{book.publisher}}</span></p>
+                                        <p>number of Copies: <span class="item">{{book.noOfCopies}}</span></p>
+                                        <p>Edition: <span class="item">{{book.edition}}</span></p>
                                         <p>Book Category:&nbsp;&nbsp;
-                                            <span class="badge badge-success light">bags</span>
-                                            <span class="badge badge-success light">clothes</span>
-                                            <span class="badge badge-success light">shoes</span>
-                                            <span class="badge badge-success light">dresses</span>
+                                            <span class="badge badge-success light">{{book.category}}</span>
                                         </p>
-                                        <p class="text-content">Lorem ipsum dolor sit amet, consectetur
-                                            adipisicing elit. Eaque sequi accusantium obcaecati voluptates.
-                                            Quibusdam, doloribus veniam voluptas ut incidunt nihil neque
-                                            distinctio amet possimus debitis eveniet est voluptate
-                                            necessitatibus quos.</p>
+                                        <p>Pages: <span class="item">{{book.pages}}</span></p>
+                                        <p>noOfCurrentBorrowed: <span class="item">{{book.noOfCurrentBorrowed}}</span></p>
+                                        <p>noOfCurrentReading: <span class="item">{{book.noOfCurrentReading}}</span></p>
+                                        <p>noBorrowed: <span class="item">{{book.noBorrowed}}</span></p>
+                                        <p>noReading: <span class="item">{{book.noReading}}</span></p>
+                                        <p>Publishing Date: <span class="item">{{book.publishingDate}}</span></p>
+                                        <p>Created At: <span class="item">{{book.createdAt}}</span></p>
+                                        <p>Updated At: <span class="item">{{book.updatedAt}}</span></p>
+                                        
                                         <div class="d-flex align-items-center mt-4">
                                             
                                             <!--Quanatity End-->
                                             <div class="shopping-cart  mb-3 mr-3">
-                                                <a class="btn btn-danger" href="javascript:void(0)"><i class="fa fa-trash mr-2"></i>Delete</a>
-                                                <a class="btn btn-primary" href="/bookedit"><i class="fa fa-edit mr-2"></i>Edit</a>
+                                                <a class="btn btn-primary" href="/bookedit/{{book._id}}"><i class="fa fa-edit mr-2"></i>Edit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +73,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

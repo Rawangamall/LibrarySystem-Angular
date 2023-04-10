@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Layout/header/header.component';
@@ -24,6 +25,11 @@ import { Error503Component } from './Layout/pages/errors/error503/error503.compo
 import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
+import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 
 
 @NgModule({
@@ -50,10 +56,16 @@ import { LoginappComponent } from './loginapp/loginapp.component';
     DashboardappComponent,
     WebappComponent,
     LoginappComponent,
+    BookAddComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
