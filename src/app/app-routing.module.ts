@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //import dashboard
-import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component';
+import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component';  
 //import member
 import { MemberComponent } from './Layout/pages/member/member.component';
 //import editmember
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
 //import addmember
 import { MemberAddComponent } from './Layout/pages/member-add/member-add.component';
+//import viewmember
+import { MemberProfileComponent } from './Layout/pages/member-profile/member-profile.component';
+
 //import admin
 import { AdminComponent } from './Layout/pages/admin/admin.component';
 //import employee
@@ -42,8 +45,9 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'member', component: MemberComponent },
   { path: 'member', component: MemberComponent },
-  { path: 'editmember', component: EditmemberComponent },
+  { path: 'editmember/:id', component: EditmemberComponent },
   { path: 'member-add', component: MemberAddComponent },
+  { path: 'memberProfile/:id', component: MemberProfileComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'profile', component: ProfileComponent },

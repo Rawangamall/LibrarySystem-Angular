@@ -15,7 +15,7 @@ import { MemberService } from 'src/app/services/member.service';
 export class MemberAddComponent {
   date=Date.now();
   date2=this.date.toString();
-  member:Member=new Member(5,"manar","","","",0,this.date2,"");
+  member:Member=new Member(0,"","","","",0,this.date2,"");
     constructor(public memberService:MemberService, public router:Router){}
   save(){
     this.memberService.addMember(this.member).subscribe(data =>{

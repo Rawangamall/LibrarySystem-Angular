@@ -5,8 +5,8 @@
         <div class="container-fluid">
             <div class="form-head d-flex flex-wrap mb-sm-4 align-items-start">
                 <div class="mr-auto mb-2 d-lg-block mb-3">
-                    <h2 class="text-black font-w700 mb-0">Member</h2>
-                    <p class="mb-0">Lorem ipsum dolor sit amet </p>
+                    <h2 class="text-black font-w700 mb-0">All Members</h2>
+                 
                 </div>
                 <div class="dashboard_bar mb-3">
                     <div class="input-group search-area right d-lg-inline-flex d-none  mr-5">
@@ -35,7 +35,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-sm mb-0 table-striped">
+                                <table class="table table-sm mb-0  table-striped">
                                     <thead>
                                         <tr>
                                             <th class=" pr-3">
@@ -55,14 +55,14 @@
                                     </thead>
                                     <tbody id="customers">
 
-                                        <tr class="btn-reveal-trigger" *ngFor="let item of members">
+                                        <tr class="btn-reveal-trigger" *ngFor="let member of members">
                                             <td class="py-2">
                                                 <div class="custom-control custom-checkbox mx-2">
                                                     <input type="checkbox" class="custom-control-input" id="checkbox1">
                                                     <label class="custom-control-label" for="checkbox1"></label>
                                                 </div>
                                             </td>
-                                            <td class="py-2"><a href="mailto:ricky@example.com">{{item._id}}</a>
+                                            <td class="py-2"><a href="mailto:ricky@example.com">{{member._id}}</a>
                                             </td>
                                             <td class="py-3">
                                                 <a href="#">
@@ -74,17 +74,17 @@
                                                             </div>
                                                         </div>
                                                         <div class="media-body">
-                                                            <h5 class="mb-0 fs--1">{{item.fullName}}</h5>
+                                                            <h5 class="mb-0 fs--1">{{member.fullName}}</h5>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td class="py-2"><a href="mailto:{{item.email}}">{{item.email}}</a>
+                                            <td class="py-2"><a href="mailto:{{member.email}}">{{member.email}}</a>
                                             </td>
-                                            <td class="py-2"> <a href="{{item.phoneNumber}}">{{item.phoneNumber}}</a>
+                                            <td class="py-2"> <a href="{{member.phoneNumber}}">{{member.phoneNumber}}</a>
                                             </td>
-                                            <td class="py-2 pl-5">{{item.fullAddress}}</td>
-                                            <td class="py-2">{{item.birthdate}}</td>
+                                            <td class="py-2 pl-5">{{member.fullAddress}}</td>
+                                            <td class="py-2">{{member.birthdate}}</td>
                                             <td class="py-2 text-right">
                                                 <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp"
                                                         type="button" data-toggle="dropdown"><span class="fs--1"><svg
@@ -103,9 +103,9 @@
                                                                 </g>
                                                             </svg></span></button>
                                                     <div class="dropdown-menu dropdown-menu-right border py-0">
-                                                        <div class="py-2"><a class="dropdown-item"
-                                                                href="/editmember">Edit</a><a
-                                                                class="dropdown-item text-danger" href="#!">Delete</a>
+                                                        <div class="py-2">
+                                                            <a class="dropdown-item"  href="/memberProfile/{{member._id}}">View Profile</a>
+                                                            <a class="dropdown-item text-danger" href="#!">Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -29,6 +29,7 @@ import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
 import { FormsModule } from '@angular/forms';
+import { MemberProfileComponent } from './Layout/pages/member-profile/member-profile.component';
 
 
 
@@ -57,6 +58,7 @@ import { FormsModule } from '@angular/forms';
     DashboardappComponent,
     WebappComponent,
     LoginappComponent,
+    MemberProfileComponent,
     
   ],
   imports: [
