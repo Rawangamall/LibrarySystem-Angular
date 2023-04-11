@@ -52,7 +52,7 @@
                 </div>
                 <div class="media-body">
                   <h6 class="font-w700">
-                    <a href="/profile" class="text-black">{{item.firstName}} {{item.lastName}}</a>
+                    <a href="/profile/{{item._id}}" class="text-black">{{item.firstName}} {{item.lastName}}</a>
                   </h6>
                   <p class="fs-14 mb-1">{{item.email}}</p>
                   <button class="btn btn-danger float-right" (click)="deleteEmployee(item._id)">Delete</button>
