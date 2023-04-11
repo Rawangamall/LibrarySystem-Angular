@@ -1,9 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +27,11 @@ import { Error503Component } from './Layout/pages/errors/error503/error503.compo
 import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
+import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
+import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
+import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
+import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 
 
 @NgModule({
@@ -54,13 +58,18 @@ import { LoginappComponent } from './loginapp/loginapp.component';
     DashboardappComponent,
     WebappComponent,
     LoginappComponent,
+    BookAddComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    BookOperationBorrowComponent,
+    BookOperationReadComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
