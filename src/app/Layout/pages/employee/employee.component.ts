@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-employee',
@@ -9,7 +10,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent {
-  constructor(public employeeService: EmployeeService, public router:Router){}
+  constructor(public employeeService: EmployeeService,    private authService: AuthService    ,public router:Router){}
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
@@ -30,9 +31,18 @@ export class EmployeeComponent {
     }
   }
   ngOnInit(){
+
+    // Check if admin or BAdmin to view employee data
+    const userRole = this.authService.getRole();
+    if (userRole === 'Admin') {
     this.employeeService.getAllEmployees().subscribe(data=>{
-      
       this.emps = data;
     });
+  } else {
+    // User is not authorized, redirect to login page
+    console.error('User is not authorized to view employee data.');
+    window.location.href = '/login';
   }
+
 }
+} 

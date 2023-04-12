@@ -22,6 +22,7 @@ export class BookService {
   getAllBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.baseurl);
   }
+
   getOneBook(id:number): Observable<Book>{
     return this.http.get<Book>(this.baseurl+"/"+id);
   }
