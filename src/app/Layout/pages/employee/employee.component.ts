@@ -15,6 +15,7 @@ export class EmployeeComponent {
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
+  searchText='';
   save(){
     this.employeeService.addEmployee(this.emp).subscribe(data =>{
       console.log(data);
@@ -42,7 +43,7 @@ export class EmployeeComponent {
       });
     }
   }
-  
+
   ngOnInit(){
 
     // Check if admin or BAdmin to view employee data

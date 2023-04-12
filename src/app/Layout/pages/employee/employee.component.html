@@ -12,7 +12,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Search here.."
+              placeholder="Search here.." name="search" [(ngModel)]="searchText" autocomplete="off"
             />
             <div class="input-group-append">
               <a href="javascript:void(0);" class="input-group-text">
@@ -38,7 +38,7 @@
           data-target="#addOrderModal"
           class="btn btn-primary btn-rounded mb-3"><i class="fa fa-user-plus mr-3"></i>New Employee</a>
       <div class="row">
-        <div class="col-xl-3 col-xxl-6 col-sm-6"  *ngFor="let item of emps.slice((currentPage-1)*6, currentPage*6)">
+        <div class="col-xl-3 col-xxl-6 col-sm-6"  *ngFor="let item of emps.slice((currentPage-1)*6, currentPage*6) | filter:searchText">
           <div class="card contact-bx hvr">
             <div class="card-body">
               <div class="media">
