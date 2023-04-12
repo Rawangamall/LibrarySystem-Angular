@@ -33,16 +33,12 @@ export class EmployeeComponent {
   ngOnInit(){
 
     // Check if admin or BAdmin to view employee data
-    const userRole = this.authService.getRole();
-    if (userRole === 'Admin') {
+  //  const userRole = this.authService.getRole();
     this.employeeService.getAllEmployees().subscribe(data=>{
       this.emps = data;
     });
-  } else {
-    // User is not authorized, redirect to login page
-    console.error('User is not authorized to view employee data.');
-    window.location.href = '/login';
-  }
+
+  
 
 }
 } 
