@@ -49,11 +49,11 @@
     </div>
 </div> -->
 
-<!-- <div class="content-body"> -->
+ <div class="content-body"> 
     <!-- row -->
-    <!-- <div class="container-fluid"> -->
+    <div class="container-fluid">
       <!-- Add Project -->
-      <!-- <div class="modal fade" id="addProjectSidebar">
+      <div class="modal fade" id="addProjectSidebar">
       </div>
       <div class="row page-titles mx-0">
       </div>
@@ -95,6 +95,13 @@
                             <label class="form-label">PhoneNo.</label>
                             <input type="text"  [(ngModel)]="member.phoneNumber" [ngModelOptions]="{standalone: true}" class="form-control">
                         </div>
+  
+
+                      <div class="form-group col-md-6">
+                        <label>Image</label>
+                        <input class="form-control" type="file" placeholder="Image" [(ngModel)]="member.image" [ngModelOptions]="{standalone: true}"
+                            class="form-control">
+                    </div>
                       </div>
                       <button class="btn btn-primary" (click)="update()" type="submit">Submit</button>
                     </form>
@@ -106,37 +113,5 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div> 
 
-
-  <div class="content-body">
-    <!-- row -->
-    <div class="container-fluid">
-        <div class="row page-titles mx-0">
-            <div class="col-sm-6 p-md-0">
-                <div class="welcome-text">
-                    <h4>Hi, welcome back!  {{member.fullName}}</h4>
-                    <p class="mb-0">edit the book</p>
-                </div>
-            </div>
-        </div>
-        <!-- row -->
-        <div class="mb-3 shadow p-5">
-            <form action="">
-                <div class="form-group">
-                    <label for="" class="form-label">ID</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                        placeholder="{{member._id}}" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="" class="form-label">Title</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{member.fullName}}"  [(ngModel)]="member.fullName" [ngModelOptions]="{standalone: true}"
-                        placeholder="" required>
-                </div>
-               
-               
-                <button class="btn btn-primary" (click)="update()">Submit</button>
-            </form>
-        </div>
-    </div>
-</div>

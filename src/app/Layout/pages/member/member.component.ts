@@ -14,6 +14,7 @@ import { MemberService } from 'src/app/services/member.service';
 
 
 export class MemberComponent {
+  currentPage = 1;
    members: Member[] = []; 
   constructor(public memberService:MemberService, public router:Router){
   }
@@ -23,6 +24,17 @@ export class MemberComponent {
         console.log(response));
        // this.router.navigateByUrl('/members');
     }
+  }
+  getPages(): number[] {
+    const pageCount = Math.ceil(this.members.length / 6);
+    if (pageCount === 0) {
+      return [];
+    }
+    const pages = [];
+    for (let i = 1; i <= pageCount; i++) {
+      pages.push(i);
+    }
+    return pages;
   }
   ngOnInit(){
     this.memberService.getAllMembers().subscribe(data=>{

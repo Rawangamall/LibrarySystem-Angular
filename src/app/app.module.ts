@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,6 @@ import { NavbarComponent } from './Layout/navbar/navbar.component';
 import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component';
 import { MemberComponent } from './Layout/pages/member/member.component';
 import { MemberAddComponent } from './Layout/pages/member-add/member-add.component';
-
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
 import { AdminComponent } from './Layout/pages/admin/admin.component';
 import { EmployeeComponent } from './Layout/pages/employee/employee.component';
@@ -28,8 +27,12 @@ import { Error503Component } from './Layout/pages/errors/error503/error503.compo
 import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
-import { FormsModule } from '@angular/forms';
 import { MemberProfileComponent } from './Layout/pages/member-profile/member-profile.component';
+import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
+import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
+import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
+import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 
 
 
@@ -59,7 +62,12 @@ import { MemberProfileComponent } from './Layout/pages/member-profile/member-pro
     WebappComponent,
     LoginappComponent,
     MemberProfileComponent,
-    
+    BookAddComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    BookOperationBorrowComponent,
+    BookOperationReadComponent,
+   
   ],
   imports: [
     HttpClientModule,
@@ -67,6 +75,7 @@ import { MemberProfileComponent } from './Layout/pages/member-profile/member-pro
     AppRoutingModule,
     CommonModule,
     FormsModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

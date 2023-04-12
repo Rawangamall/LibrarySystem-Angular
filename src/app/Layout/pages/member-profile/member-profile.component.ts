@@ -18,17 +18,17 @@ export class MemberProfileComponent {
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
       const memberId = params['id'];
-      console.log(memberId);
+      // console.log(memberId);
       this.memeberService.getOneMember(memberId).subscribe(data=>{
-      console.log(data);
+      // console.log(data);
         this.member = data;
       })
     });
   }
-  update(){
-    this.memeberService.getOneMember(this.member._id).subscribe(data => {
-      console.log(data);
-      this.router.navigateByUrl('/member');
-    })
-  } 
+  // NavUpdateComponent(){
+  //   this.memeberService.getOneMember(this.member._id).subscribe(data => {
+  //     console.log(data);
+  //     this.router.navigateByUrl('/member');
+  //   })
+  // } 
 }

@@ -32,7 +32,8 @@ export class MemberService {
     return this.http.delete(this.baseURL2+id);
   }
   updateMember(member:Member,id:number){
-    console.log(this.baseURL2+id,member);
+    
+    console.log("serviceee",this.baseURL2+id,member);
     return this.http.put<Member>(this.baseURL2+id,member);
   }
   constructor(public http:HttpClient) {
