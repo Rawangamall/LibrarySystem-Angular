@@ -28,7 +28,7 @@ export class EmployeeService {
     const headers = this.authService.setAuthTokenHeader();
     return this.http.post<Employee>(this.baseURL,emp , { headers });
   }
-  deleteEmployeeByID(id:number){
+  deleteEmployeeByID(id:number){x
     const headers = this.authService.setAuthTokenHeader();
     location.reload();
     return this.http.delete(this.baseURL2+id , { headers });
