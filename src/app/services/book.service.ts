@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Book }  from '../models/book';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,11 @@ export class BookService {
   mostPopularURL="http://localhost:8080/Bookoper/mostPopularBooks";
 
   getAllBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.baseurl);
+    const headers = this.authService.setAuthTokenHeader();   
+    const role = this.authService.getRole();
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner" || role=="Employee") {
+      return this.http.get<Book[]>(this.baseurl, {headers});
+    }else{ throw new Error('Unauthorized access: user must be an admin');}
   }
 
   getOneBook(id:number): Observable<Book>{
@@ -49,9 +54,13 @@ export class BookService {
     return this.http.get<Book[]>(this.mostReadingURL);
   }
 
-  constructor(public http:HttpClient, public router:Router) {
-    //  this.http.get<Book>("http://localhost:8080/Book/2").subscribe(a=>
-    //    console.log(a));
-  }
+  constructor(public http:HttpClient, public router:Router, private authService: AuthService) {
+    const headers = this.authService.setAuthTokenHeader();
+    const role = this.authService.getRole();
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner" || role=="Employee") {
+      this.http.get<Book>("http://localhost:8080/Book", { headers }).subscribe(data=>{
+        console.log(data); 
+    })
+  }else{ throw new Error('Unauthorized access: user must be an admin');}
 }
-
+}
