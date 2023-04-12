@@ -14,25 +14,18 @@ export class EmployeeService {
 
   getAllEmployees(){
     const headers = this.authService.setAuthTokenHeader();   
-    const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
        return this.http.get<Employee[]>(this.baseURL , { headers });
-    }else{ throw new Error('Unauthorized access: user must be an admin');}
   }
   getOneEmployee(id:number){
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
     return this.http.get<Employee>(this.baseURL2+id , { headers });
-  }else{ throw new Error('Unauthorized access: user must be an admin');}
 
   }
   addEmployee(emp:Employee){
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
     return this.http.post<Employee>(this.baseURL,emp , { headers });
-  }else{ throw new Error('Unauthorized access: user must be an admin');}
 
   }
   deleteEmployeeByID(id:number){
@@ -42,13 +35,10 @@ export class EmployeeService {
   }
   updateEmployee(emp:Employee,id:number){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
     console.log(this.baseURL2+id,emp);
     return this.http.put<Employee>(this.baseURL2+id,emp , { headers });
-  }else{ throw new Error('Unauthorized access: user must be an admin');}
-
   }
+
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();

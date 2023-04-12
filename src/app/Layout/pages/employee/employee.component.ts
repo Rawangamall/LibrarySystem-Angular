@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent {
-  constructor(public employeeService: EmployeeService,    private authService: AuthService    ,public router:Router){}
+  constructor(public employeeService: EmployeeService , private authService: AuthService  ,public router:Router){}
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
@@ -32,8 +32,6 @@ export class EmployeeComponent {
   }
   ngOnInit(){
 
-    // Check if admin or BAdmin to view employee data
-  //  const userRole = this.authService.getRole();
     this.employeeService.getAllEmployees().subscribe(data=>{
       this.emps = data;
     });

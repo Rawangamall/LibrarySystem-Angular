@@ -44,6 +44,7 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+import { OwnerBAadmin , OwnerBAadminEmp } from 'src/app/services/auth/auth.guard';
 
 
 const routes: Routes = [
@@ -54,12 +55,12 @@ const routes: Routes = [
   { path: 'member-add', component: MemberAddComponent },
   { path: 'memberProfile/:id', component: MemberProfileComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/add', component: EmployeeAddComponent },
-  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'employee', component: EmployeeComponent ,canActivate: [OwnerBAadmin] },
+  { path: 'employee/add', component: EmployeeAddComponent ,canActivate: [OwnerBAadmin]},
+  { path: 'profile/:_id', component: ProfileComponent },
   { path: 'allbook', component: AllbookComponent },
   { path: 'Book/add', component: BookAddComponent },
-  { path: 'employeeEdit/:_id', component: EmployeeEditComponent },
+  { path: 'employeeEdit/:_id', component: EmployeeEditComponent ,canActivate: [OwnerBAadmin]},
   { path: 'bookavilablty', component: BookavilabltyComponent },
   { path: 'bookedit/:id', component: EditbookComponent },
   { path: 'bookdetails/:id', component: BookdetailsComponent },
