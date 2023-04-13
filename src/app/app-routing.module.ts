@@ -44,14 +44,13 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
-import { OwnerBAadmin , OwnerBAadminEmp } from 'src/app/services/auth/auth.guard';
+import { OwnerBAadmin , OwnerBAadminEmp ,Admin} from 'src/app/services/auth/auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'member', component: MemberComponent },
-  { path: 'member', component: MemberComponent },
-  { path: 'editmember/:id', component: EditmemberComponent },
+  { path: 'member', component: MemberComponent ,canActivate: [OwnerBAadminEmp]},
+  { path: 'editmember/:_id', component: EditmemberComponent },
   { path: 'member-add', component: MemberAddComponent },
   { path: 'memberProfile/:id', component: MemberProfileComponent },
   { path: 'admin', component: AdminComponent },

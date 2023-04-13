@@ -24,6 +24,9 @@ export class OwnerBAadmin implements CanActivate {
   }
   
 }
+@Injectable({
+  providedIn: 'root'
+})
 
 export class Owner implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
@@ -39,7 +42,9 @@ export class Owner implements CanActivate {
       return false;
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 export class BasicAdmin implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -54,7 +59,9 @@ export class BasicAdmin implements CanActivate {
       return false;
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 export class Admin implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -69,7 +76,9 @@ export class Admin implements CanActivate {
       return false;
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 export class Employee implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -84,6 +93,9 @@ export class Employee implements CanActivate {
       return false;
   }
 }
+@Injectable({
+  providedIn: 'root'
+})
 export class OwnerBAadminEmp implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}

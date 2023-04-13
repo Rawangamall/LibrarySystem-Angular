@@ -19,7 +19,7 @@ export class EditmemberComponent
   }
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
-      const memberId = params['id'];
+      const memberId = params['_id'];
       console.log(memberId,"memid before");
       this.memeberService.getOneMember(memberId).subscribe(data=>{
        
