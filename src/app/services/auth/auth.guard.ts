@@ -112,8 +112,43 @@ export class OwnerBAadminEmp implements CanActivate {
 
 }
 
+@Injectable({
+  providedIn: 'root'
+})
+export class BAdminEmp implements CanActivate {
 
+  constructor(private authService: AuthService, private router: Router) {}
 
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    const role = this.authService.getRole();
+    if (role == "BasicAdmin" || role == "Employee") {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BAadmin implements CanActivate {
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    const role = this.authService.getRole();
+    if (role == "BasicAdmin" ||  role == "Admin") {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+
+}
 
 
 

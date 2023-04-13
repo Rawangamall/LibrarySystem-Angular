@@ -29,7 +29,6 @@ export class EditmemberComponent
     });
   }
   update(){
-    console.log("im hereee in update");
     
     this.memeberService.updateMember(this.member,this.member._id).subscribe(data => {
       console.log("im hereeee",data);
