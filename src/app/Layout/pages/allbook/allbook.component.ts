@@ -10,7 +10,20 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class AllbookComponent {
   books:Book[]=[];
+  searchText='';
+  currentPage = 1;
   constructor(public bookService:BookService, public router:Router){
+  }
+  getPages(): number[] {
+    const pageCount = Math.ceil(this.books.length / 6);
+    if (pageCount === 0) {
+      return [];
+    }
+    const pages = [];
+    for (let i = 1; i <= pageCount; i++) {
+      pages.push(i);
+    }
+    return pages;
   }
   delete(id:number){
     if(confirm('Are you sure you want to delete this book?')){

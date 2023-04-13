@@ -57,8 +57,17 @@ export class EmployeeService {
       lastName:lastName
      
     };
-    return this.http.post(`${this.baseURL}/search`, requestBody);
+    const headers = this.authService.setAuthTokenHeader();   
+    const role = this.authService.getRole();
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
+      return this.http.post(`${this.baseURL}search`, requestBody , { headers });
+    
+   }else{ throw new Error('Unauthorized access: user must be an admin');}
+
+   
   }
+   // return this.http.post(`${this.baseURL}/search`, requestBody);
+    // return this.http.get<Employee[]>(this.baseURL , { headers });
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();

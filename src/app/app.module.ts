@@ -33,6 +33,7 @@ import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.c
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -74,7 +75,8 @@ import { BookOperationReadComponent } from './Layout/pages/book-operation-read/b
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule 
+    FormsModule,
+    // Ng2SearchPipeModule 
 
   ],
   providers: [],
