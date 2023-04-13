@@ -13,6 +13,7 @@ export class OperationService {
   baseurl2="http://localhost:8080/BookOperation/";
   baseurl3="http://localhost:8080/Book/returnBorrowBook/";
   baseurl4="http://localhost:8080/Book/returnReadBook/";
+  baseurl5="http://localhost:8080/Book/makeSureOfReturnedRead/";
 
   borrowBook(id:number,bookOper: Operation){
     console.log(id+"Aaaaaaa"+bookOper.operation)
@@ -30,5 +31,10 @@ export class OperationService {
   returnBookRead(id:number,bookOper: Operation){
     return this.http.put<Operation[]>(this.baseurl4+id,bookOper);
   }
+  /*
+  returnAllBookRead(id:number,bookOper: Operation){
+    return this.http.put<Operation[]>(this.baseurl5+id,bookOper);
+  }
+  */
   constructor(public http:HttpClient, public router:Router) {}
 }

@@ -39,6 +39,7 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'employee/add', component: EmployeeAddComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'allbook', component: AllbookComponent },
+  { path: 'Book/filterBooks/get', component: FilteredBooksComponent },
   { path: 'Book/add', component: BookAddComponent },
   { path: 'employeeEdit/:_id', component: EmployeeEditComponent },
   { path: 'bookavilablty', component: BookavilabltyComponent },
