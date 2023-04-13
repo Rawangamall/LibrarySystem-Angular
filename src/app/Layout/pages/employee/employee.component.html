@@ -12,7 +12,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Search here.."
+              placeholder="Search here.." name="search" [(ngModel)]="searchText" autocomplete="off"
             />
             <div class="input-group-append">
               <a href="javascript:void(0);" class="input-group-text">
@@ -64,31 +64,29 @@
             </div>
           </div>
         </div>
-<nav aria-label="Page navigation example">
-        <ul class="pagination pagination-circle">
-          <li class="page-item page-indicator">
-            <a class="page-link" href="javascript:void(0)">
-              <i class="la la-angle-left"></i
-            ></a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="javascript:void(0)">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="javascript:void(0)">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="javascript:void(0)">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="javascript:void(0)">4</a>
-          </li>
-          <li class="page-item page-indicator">
-            <a class="page-link" href="javascript:void(0)">
-              <i class="la la-angle-right"></i
-            ></a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-circle">
+                  <li class="page-item page-indicator">
+                    <button class="page-link" href="javascript:void(0)"  [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">
+                      <i class="la la-angle-left"></i>
+                    </button>
+                  </li>
+                  <ng-container *ngFor="let page of getPages()">
+                      <li class="page-item" [class.active]="page === currentPage">
+                          <a class="page-link" href="javascript:void(0)" (click)="currentPage = page">{{page}}</a>
+                        </li>
+                      </ng-container>
+                      <li class="page-item page-indicator">
+                        <button class="page-link" href="javascript:void(0)" [disabled]="currentPage === getPages().length" (click)="currentPage = currentPage + 1">
+                          <i class="la la-angle-right"></i>
+                        </button>
+                      </li>
+                    </ul>
+                    </nav>
+                </div>
+              </div>
+            </div>
+        </div>

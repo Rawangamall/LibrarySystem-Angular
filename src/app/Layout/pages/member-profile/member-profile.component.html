@@ -18,8 +18,8 @@
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
-                                    <h4 class="text-primary mb-0">{{emp.firstName}} {{emp.lastName}}</h4>
-                                    <p>Employee</p>
+                                    <h4 class="text-primary mb-0">{{member.fullName}} </h4>
+                                    <!-- <p>Member</p> -->
                                 </div>                            
                             </div>
                         </div>
@@ -37,18 +37,10 @@
                                     <h4 class="text-primary mb-4">Personal Information</h4>
                                     <div class="row mb-2">
                                         <div class="col-sm-3 col-5">
-                                            <h5 class="f-w-500">Name <span class="pull-right">:</span>
+                                            <h5 class="f-w-500">Full Name <span class="pull-right">:</span>
                                             </h5>
                                         </div>
-                                        <div class="col-sm-9 col-7"><span>{{emp.firstName}} {{emp.lastName}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-2">
-                                        <div class="col-sm-3 col-5">
-                                            <h5 class="f-w-500">Email <span class="pull-right">:</span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-sm-9 col-7"><span>{{emp.email}}</span>
+                                        <div class="col-sm-9 col-7"><span>{{member.fullName}} </span>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
@@ -56,28 +48,53 @@
                                             <h5 class="f-w-500">Birthdate <span class="pull-right">:</span>
                                             </h5>
                                         </div>
-                                        <div class="col-sm-9 col-7"><span>{{emp.birthdate | date:'dd-MM-yyyy'}}</span>
+                                        <div class="col-sm-9 col-7"><span>{{member.birthdate}}</span>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-sm-3 col-5">
-                                            <h5 class="f-w-500">Hire Date <span
-                                                    class="pull-right">:</span></h5>
+                                            <h5 class="f-w-500">Full Address <span class="pull-right">:</span>
+                                            </h5>
                                         </div>
-                                        <div class="col-sm-9 col-7"><span>{{emp.hireDate | date:'dd-MM-yyyy'}}</span>
+                                        <div class="col-sm-9 col-7"><span>{{member.fullAddress}}</span>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-sm-3 col-5">
-                                            <h5 class="f-w-500">Salary <span
-                                                    class="pull-right">:</span></h5>
+                                            <h5 class="f-w-500">PhoneNumber <span class="pull-right">:</span>
+                                            </h5>
                                         </div>
-                                        <div class="col-sm-9 col-7"><span>{{emp.salary}}</span>
+                                        <div class="col-sm-9 col-7"><span>{{member.phoneNumber}}</span>
                                         </div>
                                     </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Email <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{member.email}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Password <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{member.password}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">image <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{member.image}}</span>
+                                        </div>
+                                    </div>
+                                   
                                 </div><br>
                                 <div class="shopping-cart  mb-3 mr-3">
-                                    <a class="btn btn-primary" href="/employeeEdit/{{emp._id}}"><i class="fa fa-edit mr-2"></i>Edit</a>
+                                    <a class="btn btn-primary" href="/editmember/{{member._id}}"><i class="fa fa-edit mr-2"></i>Edit</a>
                                 </div>
                             </div>
             </div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Book }  from '../models/book';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,40 +22,54 @@ export class BookService {
   mostPopularURL="http://localhost:8080/Bookoper/mostPopularBooks";
 
   getAllBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.baseurl);
+    const headers = this.authService.setAuthTokenHeader();   
+      return this.http.get<Book[]>(this.baseurl, {headers});
   }
+<<<<<<< HEAD
   getFilteredBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.baseurlFiltered);
   }
+=======
+
+>>>>>>> 20bfde96fc344ffb7e403bdf21e5262629ac078f
   getOneBook(id:number): Observable<Book>{
-    return this.http.get<Book>(this.baseurl+"/"+id);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book>(this.baseurl+"/"+id, { headers });
   }
   deleteBook(id:number){
+    const headers = this.authService.setAuthTokenHeader();   
     location.reload();
-    return this.http.delete<Book>(this.baseurl+"/"+id);
+    return this.http.delete<Book>(this.baseurl+"/"+id, { headers });
   }
   updateBook(book:Book, id:number){
-    return this.http.put<Book>(this.baseurl3+"/"+id,book);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.put<Book>(this.baseurl3+"/"+id,book, { headers });
   }
   addBook(book: Book){
-    return this.http.post<Book>(this.baseurl2,book);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.post<Book>(this.baseurl2,book, { headers });
   }
   newArrivedBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.newArrivedURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.newArrivedURL, { headers });
   }
   mostPopularBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostPopularURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostPopularURL, { headers });
   }
   mostBorrowedBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostBorrowedURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostBorrowedURL, { headers });
   }
   mostReadingBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostReadingURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostReadingURL, { headers });
   }
 
-  constructor(public http:HttpClient, public router:Router) {
-    //  this.http.get<Book>("http://localhost:8080/Book/2").subscribe(a=>
-    //    console.log(a));
-  }
+  constructor(public http:HttpClient, public router:Router, private authService: AuthService) {
+    const headers = this.authService.setAuthTokenHeader();
+      this.http.get<Book>("http://localhost:8080/Book", { headers }).subscribe(data=>{
+        console.log(data); 
+    })
 }
-
+}

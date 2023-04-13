@@ -16,9 +16,10 @@ export class ProfileComponent {
   }
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
-      const empId = params['id']
+      const empId = params['_id']
       this.employeeService.getOneEmployee(empId).subscribe(data=>{
         this.emp = data;
+        
       })
     });
   }

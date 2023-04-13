@@ -4,14 +4,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Member } from 'src/app/models/member.model';
 import { MemberService } from 'src/app/services/member.service';
 
-
 @Component({
-  selector: 'app-editmember',
-  templateUrl: './editmember.component.html',
-  styleUrls: ['./editmember.component.css']
+  selector: 'app-member-profile',
+  templateUrl: './member-profile.component.html',
+  styleUrls: ['./member-profile.component.css']
 })
-export class EditmemberComponent 
- {
+export class MemberProfileComponent {
   date=Date.now();
   date2=this.date.toString();
   member:Member=new Member(0,"","","","",0,this.date2,"");
@@ -19,21 +17,18 @@ export class EditmemberComponent
   }
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
-      const memberId = params['_id'];
-      console.log(memberId,"memid before");
+      const memberId = params['id'];
+      // console.log(memberId);
       this.memeberService.getOneMember(memberId).subscribe(data=>{
-       
+       console.log(data);
         this.member = data;
-        console.log("onemem",this.member);
       })
     });
   }
-  update(){
-    
-    this.memeberService.updateMember(this.member,this.member._id).subscribe(data => {
-      console.log("im hereeee",data);
-      this.router.navigateByUrl('/member');
-    })
-  } 
+  // NavUpdateComponent(){
+  //   this.memeberService.getOneMember(this.member._id).subscribe(data => {
+  //     console.log(data);
+  //     this.router.navigateByUrl('/member');
+  //   })
+  // } 
 }
-
