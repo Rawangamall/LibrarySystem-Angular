@@ -25,13 +25,9 @@ export class BookService {
     const headers = this.authService.setAuthTokenHeader();   
       return this.http.get<Book[]>(this.baseurl, {headers});
   }
-<<<<<<< HEAD
   getFilteredBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.baseurlFiltered);
   }
-=======
-
->>>>>>> 20bfde96fc344ffb7e403bdf21e5262629ac078f
   getOneBook(id:number): Observable<Book>{
     const headers = this.authService.setAuthTokenHeader();   
     return this.http.get<Book>(this.baseurl+"/"+id, { headers });
