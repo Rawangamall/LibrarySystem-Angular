@@ -35,7 +35,7 @@ export class EmployeeService {
   }else{ throw new Error('Unauthorized access: user must be an admin');}
 
   }
-  deleteEmployeeByID(id:number){x
+  deleteEmployeeByID(id:number){
     const headers = this.authService.setAuthTokenHeader();
     location.reload();
     return this.http.delete(this.baseURL2+id , { headers });
@@ -48,6 +48,16 @@ export class EmployeeService {
     return this.http.put<Employee>(this.baseURL2+id,emp , { headers });
   }else{ throw new Error('Unauthorized access: user must be an admin');}
 
+  }
+
+  searchForMember(searchKey: string, firstName: string, lastName: string): Observable<any> {
+    const requestBody = {
+      searchKey: searchKey,
+      firstName: firstName,
+      lastName:lastName
+     
+    };
+    return this.http.post(`${this.baseURL}/search`, requestBody);
   }
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
