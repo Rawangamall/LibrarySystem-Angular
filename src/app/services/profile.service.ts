@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class EmployeeService {
     console.log(this.baseURL2+id,emp);
     return this.http.put<Employee>(this.baseURL2+id,emp);
   }
-  constructor(public http:HttpClient) {
+  constructor(private authService: AuthService ,public http:HttpClient) {
     this.http.get<Employee>("http://localhost:8080/Employees").subscribe(data=>{
       console.log(data);
     })
