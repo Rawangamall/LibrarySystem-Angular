@@ -50,7 +50,15 @@ export class AuthService {
         console.log(decodedToken.role);
         return decodedToken.role;
       }
-
+      
+       islogged(): boolean {
+        const userToken = localStorage.getItem('authToken');
+        if (userToken) {
+          return true;
+        } else {
+          return false;
+        }
+      }
       getID(): string{
         const authtoken = localStorage.getItem('authToken');
         if (!authtoken) {

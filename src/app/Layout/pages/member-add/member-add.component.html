@@ -19,35 +19,40 @@
                 </div>
                 <div class="col-md-7 col-xxl-12">
                   <div class="new-arrival-content position-relative">
-                    <form enctype="multipart/form-data" method="post">
+                    <form enctype="multipart/form-data" method="post" (ngSubmit)="onSubmit()">
                       <div class="form-row">
                       
                         <div class="form-group col-md-6">
                           <label class="form-label">Full Name</label>
-                          <input type="text"  [(ngModel)]="member.fullName" [ngModelOptions]="{standalone: true}" class="form-control">
+                          <input type="text" name="name" [(ngModel)]="member.fullName" [ngModelOptions]="{standalone: true}" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label class="form-label">Birthdate</label>
-                          <input type="date" placeholder="Birthdate" [(ngModel)]="member.birthdate" [ngModelOptions]="{standalone: true}" class="form-control">
+                          <input type="date" placeholder="Birthdate" [(ngModel)]="member.birthdate" [ngModelOptions]="{standalone: true}" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                           <label class="form-label">Full Address</label>
-                          <textarea [(ngModel)]="member.fullAddress" [ngModelOptions]="{standalone: true}" class="form-control"></textarea>
+                          <textarea [(ngModel)]="member.fullAddress" name="address" [ngModelOptions]="{standalone: true}" class="form-control"></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">PhoneNo.</label>
-                            <input type="text"  [(ngModel)]="member.phoneNumber" [ngModelOptions]="{standalone: true}" class="form-control">
+                            <input type="text"  [(ngModel)]="member.phoneNumber" name="phone" [ngModelOptions]="{standalone: true}" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label class="form-label">Email</label>
-                          <input type="email"  [(ngModel)]="member.email" [ngModelOptions]="{standalone: true}" class="form-control">
+                          <input type="email"  [(ngModel)]="member.email" name="email" [ngModelOptions]="{standalone: true}" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label class="form-label">Password</label>
-                          <input type="password"  [(ngModel)]="member.password" [ngModelOptions]="{standalone: true}" class="form-control">
+                          <input type="password"  [(ngModel)]="member.password" name="password" [ngModelOptions]="{standalone: true}" class="form-control">
                         </div>
                       </div>
-                      <button class="btn btn-primary" (click)="save()" type="submit">Submit</button>
+                      <button class="btn btn-primary" type="submit" (click)="validateEmail();">Submit</button>
+                      <div *ngIf="errorMessage.length > 0" class="alert alert-danger mt-3">
+                        <ul>
+                          <li *ngFor="let error of errorMessage">{{ error }}</li>
+                        </ul>
+                      </div>
                     </form>
                   </div>
                 </div>

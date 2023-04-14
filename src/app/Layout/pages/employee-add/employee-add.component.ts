@@ -56,8 +56,6 @@ export class EmployeeAddComponent {
     // }
     this.errorMessage.join(' ');
 
-
-
 }
 
  
