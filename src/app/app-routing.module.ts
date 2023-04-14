@@ -44,6 +44,7 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
 import { OwnerBAadmin , OwnerBAadminEmp ,BAdminEmp , BAadmin} from 'src/app/services/auth/auth.guard';
 
 
@@ -54,12 +55,13 @@ const routes: Routes = [
   { path: 'member-add', component: MemberAddComponent ,canActivate: [BAdminEmp]},
   { path: 'memberProfile/:id', component: MemberProfileComponent ,canActivate: [BAdminEmp]},
   { path: 'admin', component: AdminComponent },
-  { path: 'employee', component: EmployeeComponent ,canActivate: [OwnerBAadmin] },
-  { path: 'employee/add', component: EmployeeAddComponent ,canActivate: [OwnerBAadmin]},
-  { path: 'profile/:_id', component: ProfileComponent ,canActivate: [OwnerBAadminEmp]},
-  { path: 'allbook', component: AllbookComponent ,canActivate: [OwnerBAadminEmp]},
-  { path: 'Book/add', component: BookAddComponent ,canActivate: [BAadmin]},
-  { path: 'employeeEdit/:_id', component: EmployeeEditComponent ,canActivate: [OwnerBAadmin]},
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'employee/add', component: EmployeeAddComponent },
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'allbook', component: AllbookComponent },
+  { path: 'Book/filterBooks/get', component: FilteredBooksComponent },
+  { path: 'Book/add', component: BookAddComponent },
+  { path: 'employeeEdit/:_id', component: EmployeeEditComponent },
   { path: 'bookavilablty', component: BookavilabltyComponent },
   { path: 'bookedit/:id', component: EditbookComponent ,canActivate: [BAadmin]},
   { path: 'bookdetails/:id', component: BookdetailsComponent ,canActivate: [OwnerBAadminEmp]},

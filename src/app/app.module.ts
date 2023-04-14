@@ -33,8 +33,8 @@ import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.c
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
 
 
 @NgModule({
@@ -68,6 +68,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EmployeeEditComponent,
     BookOperationBorrowComponent,
     BookOperationReadComponent,
+    FilteredBooksComponent,
    
   ],
   imports: [
