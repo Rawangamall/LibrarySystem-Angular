@@ -14,9 +14,7 @@ export class LoginappComponent {
 
   validateEmail() {
     const emailInput = this.email;
-  
     const isPasswordValid = this.validatePassword();
-  
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValidEmail = emailRegex.test(emailInput);
   
@@ -29,8 +27,6 @@ export class LoginappComponent {
     }
 }
 
- 
- 
   // Use ViewChild to get a reference to the email input element
   @ViewChild('email', { static: true }) emailInput!: ElementRef;
   

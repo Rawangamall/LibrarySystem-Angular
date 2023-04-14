@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
+import { Member } from 'src/app/models/member.model';
 import { BookService } from 'src/app/services/book.service';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +18,8 @@ export class DashboardComponent {
   mostBorrowedBooks:any[]=[];
   mostReadingBooks:any[]=[];
   books:Book[]=[];
-  constructor(public bookService:BookService, public router:Router){
+  members:Member[]=[];
+  constructor(public bookService:BookService,public memberService:MemberService, public router:Router){
   }
   ngOnInit(){
     // New Arrived Books
@@ -39,10 +42,14 @@ export class DashboardComponent {
       this.mostReadingBooks = data;
       return data;
     })
-    // Count of Books
+    // Count Number of Books
     this.bookService.getAllBooks().subscribe(data=>{
       this.books = data;
       return data;
     })
+    // Count Number of Members
+    this.memberService.getAllMembers().subscribe(data=>{
+      this.members = data;
+    });
   }
 }
