@@ -119,16 +119,16 @@ Header start
                   alt=""
                   class="rounded-circle"
                 />
-                <div class="header-info">
-                  <span>Name</span>
-                  <small>Super Admin</small>
+                <div class="header-info" >
+                  <div *ngFor="let items of emps"><span *ngIf="items.email===email">{{items.firstName}}</span></div>
+                  <small>{{role}}</small>
                 </div>
                 <i
                   class="fa fa-caret-down ml-3 mr-2"
                   aria-hidden="true"
                 ></i>
               </a>
-              <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-menu dropdown-menu-right" *ngFor="let item of emps">
                 <a
                   href="/profile"
                   class="dropdown-item ai-icon"
@@ -151,7 +151,9 @@ Header start
                     ></path>
                     <circle cx="12" cy="7" r="4"></circle>
                   </svg>
-                  <span class="ml-2">Profile </span>
+                  <div *ngIf="item.email===email" >
+                    <a class="ml-2"  routerLink="/profile/{{item._id}}">Profile </a>
+                  </div>
                 </a>
                 <a href="page-login.html" class="dropdown-item ai-icon">
                   <svg

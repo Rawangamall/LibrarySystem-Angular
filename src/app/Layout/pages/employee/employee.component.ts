@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent {
-  constructor(public employeeService: EmployeeService,    private authService: AuthService    ,public router:Router){}
+  constructor(public employeeService: EmployeeService, private authService: AuthService, public router:Router){}
   currentPage = 1;
   searchKey = '';
   date=Date.now();
@@ -65,12 +65,8 @@ export class EmployeeComponent {
   }
   
   ngOnInit(){
-
     this.employeeService.getAllEmployees().subscribe(data=>{
       this.emps = data;
     });
-
-  
-
 }
 } 

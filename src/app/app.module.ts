@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -33,8 +34,7 @@ import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.c
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
 
 
 @NgModule({
@@ -68,6 +68,7 @@ import { BookOperationReadComponent } from './Layout/pages/book-operation-read/b
     EmployeeEditComponent,
     BookOperationBorrowComponent,
     BookOperationReadComponent,
+    FilteredBooksComponent,
    
   ],
   imports: [
@@ -75,7 +76,8 @@ import { BookOperationReadComponent } from './Layout/pages/book-operation-read/b
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

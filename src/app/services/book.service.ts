@@ -13,6 +13,7 @@ export class BookService {
     throw new Error('Method not implemented.');
   }
   baseurl="http://localhost:8080/Book";
+  baseurlFiltered="http://localhost:8080/Book/filterBooks/get";
   baseurl2="http://localhost:8080/Book/add";
   baseurl3="http://localhost:8080/Book/update";
   newArrivedURL="http://localhost:8080/Book/newArrivedBooks";
@@ -24,7 +25,9 @@ export class BookService {
     const headers = this.authService.setAuthTokenHeader();   
       return this.http.get<Book[]>(this.baseurl, {headers});
   }
-
+  getFilteredBooks(): Observable<Book[]>{
+    return this.http.get<Book[]>(this.baseurlFiltered);
+  }
   getOneBook(id:number): Observable<Book>{
     const headers = this.authService.setAuthTokenHeader();   
     return this.http.get<Book>(this.baseurl+"/"+id, { headers });

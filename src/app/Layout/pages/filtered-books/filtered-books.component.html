@@ -17,31 +17,19 @@
             <div class="col-sm-6 p-md-0">
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-              <div class="dashboard_bar mb-3">
-                <!-- search area code -->
-                <div class="input-group search-area right d-lg-inline-flex d-none mr-5">
-                  <input type="text" class="form-control" [(ngModel)]="searchKey" placeholder="Search here...">
-                  <div class="input-group-append">
-                    <a href="javascript:void(0);" class="input-group-text" (click)="search()">
-                      <i class="fas fa-search"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
                     <a routerLink="/Book/add" class="btn btn-primary text-white">Add new book <i class="fa fa-upload"></i></a><br>
-                    <a routerLink="/Book/filterBooks/get" class="btn btn-primary text-white">Filtered Books</a><br>
+                    <a routerLink="/allbook" class="btn btn-primary text-white">All Books</a><br>
             </div>
-        
+        </div>
         <div class="row">
-            <div class="col-md-12 col-lg-6"  *ngFor="let item of books.slice((currentPage-1)*6, currentPage*6) ">
+            <div class="col-md-12 col-lg-6"  *ngFor="let item of books">
                 <div class="card">
                     <div class="card-body">
                         <div class="row m-b-30">
                             <div class="col-md-5 col-xxl-12">
                                 <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
                                     <div class="new-arrivals-img-contnent">
-                                        <a href="bookdetails/{{item._id}}"><img class="img-fluid" src="{{item.image}}" alt=""></a>
+                                        <a href="bookdetails/{{item._id}}"><img class="img-fluid" src="assets/images/books/book1.jpg" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +62,7 @@
                                     <a routerLink="/Book/read/{{item._id}}" *ngIf="!item.available"><button  style="cursor: default;" class="btn btn-primary text-white mx-2" disabled>Read</button> </a>
                                     <a routerLink="/Book/borrow/{{item._id}}" *ngIf="item.available" class="btn btn-primary text-white mx-2">Borrow </a>
                                     <a routerLink="/Book/borrow/{{item._id}}" *ngIf="!item.available"><button  style="cursor: default;" class="btn btn-primary text-white mx-2" disabled>Borrow</button> </a>
-                                 
+                                
                                     <!-- <td><button class="btn btn-danger" (click)="delete(item._id)"><i class="fa fa-trash mr-2"></i> DELETE</button></td> -->
                                     <img src="../../../../assets/images/trash.png" width="40" height="45" (click)="delete(item._id)" style="cursor: pointer;" class="cursor-pointer mx-5">
                                 </div>
@@ -90,29 +78,3 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination pagination-circle">
-            <li class="page-item page-indicator">
-              <button class="page-link" href="javascript:void(0)"  [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">
-                <i class="la la-angle-left"></i>
-              </button>
-            </li>
-            <ng-container *ngFor="let page of getPages()">
-                <li class="page-item" [class.active]="page === currentPage">
-                    <a class="page-link" href="javascript:void(0)" (click)="currentPage = page">{{page}}</a>
-                  </li>
-                </ng-container>
-                <li class="page-item page-indicator">
-                  <button class="page-link" href="javascript:void(0)" [disabled]="currentPage === getPages().length" (click)="currentPage = currentPage + 1">
-                    <i class="la la-angle-right"></i>
-                  </button>
-                </li>
-              </ul>
-              </nav>
-          </div>
-        </div>
-      </div>
-  </div>

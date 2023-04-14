@@ -32,4 +32,13 @@ export class OperationComponent {
       return data;
     })
   }
+  
+  returnAllReadBook(bookOper:Operation[]){
+    this.bookService.returnAllBookRead(bookOper).subscribe(data=>{
+      this.bookOper = data;
+      location.reload();
+      return data;
+    })
+  }
+  
 }

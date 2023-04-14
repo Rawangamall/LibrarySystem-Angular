@@ -18,13 +18,11 @@ export class EmployeeService {
   }
   getOneEmployee(id:number){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.get<Employee>(this.baseURL2+id , { headers });
 
   }
   addEmployee(emp:Employee){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.post<Employee>(this.baseURL,emp , { headers });
 
   }
@@ -60,7 +58,7 @@ export class EmployeeService {
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner"||role =="Employee") {
     this.http.get<Employee>("http://localhost:8080/Employees", { headers }).subscribe(data=>{
       console.log(data);
     })
