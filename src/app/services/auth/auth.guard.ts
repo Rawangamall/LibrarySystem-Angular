@@ -28,6 +28,25 @@ export class OwnerBAadmin implements CanActivate {
   providedIn: 'root'
 })
 
+export class OwnerBA implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      const role = this.authService.getRole();
+      if (role =="BasicAdmin"|| role =="Owner"){
+      return true;
+      }
+      this.router.navigate(['/login']);
+      return false;
+  }
+  
+}
+@Injectable({
+  providedIn: 'root'
+})
+
 export class Owner implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 

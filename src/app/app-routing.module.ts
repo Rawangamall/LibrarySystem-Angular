@@ -52,7 +52,7 @@ import { LoginappComponent } from './loginapp/loginapp.component';
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
-import { OwnerBAadmin , OwnerBAadminEmp ,BAdminEmp , BAadmin} from 'src/app/services/auth/auth.guard';
+import {Owner,OwnerBA , OwnerBAadmin , OwnerBAadminEmp ,BAdminEmp , BAadmin} from 'src/app/services/auth/auth.guard';
 
 
 const routes: Routes = [
@@ -63,34 +63,34 @@ const routes: Routes = [
   { path: 'editmember/:_id', component: EditmemberComponent ,canActivate: [BAdminEmp]},
   { path: 'member-add', component: MemberAddComponent ,canActivate: [BAdminEmp]},
   { path: 'memberProfile/:id', component: MemberProfileComponent ,canActivate: [BAdminEmp]},
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/add', component: EmployeeAddComponent },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'allbook', component: AllbookComponent },
-  { path: 'Book/filterBooks/get', component: FilteredBooksComponent },
-  { path: 'Book/add', component: BookAddComponent },
-  { path: 'employeeEdit/:_id', component: EmployeeEditComponent },
-  { path: 'bookavilablty', component: BookavilabltyComponent },
+  { path: 'employee', component: EmployeeComponent ,canActivate: [OwnerBAadmin]},
+  { path: 'employee/add', component: EmployeeAddComponent ,canActivate: [BAadmin]},
+  { path: 'profile/:id', component: ProfileComponent ,canActivate: [OwnerBAadminEmp]},
+  { path: 'allbook', component: AllbookComponent ,canActivate: [OwnerBAadminEmp]},
+  { path: 'Book/filterBooks/get', component: FilteredBooksComponent ,canActivate: [BAdminEmp]},
+  { path: 'Book/add', component: BookAddComponent ,canActivate: [OwnerBAadmin]},
+  { path: 'employeeEdit/:_id', component: EmployeeEditComponent ,canActivate: [OwnerBAadminEmp]},
+  { path: 'bookavilablty', component: BookavilabltyComponent ,canActivate: [BAdminEmp]},
   { path: 'bookedit/:id', component: EditbookComponent ,canActivate: [BAadmin]},
   { path: 'bookdetails/:id', component: BookdetailsComponent ,canActivate: [OwnerBAadminEmp]},
-  { path: 'operation', component: OperationComponent },
-  { path: 'Book/read/:_id', component: BookOperationReadComponent },
-  { path: 'Book/borrow/:id', component: BookOperationBorrowComponent },
+  { path: 'operation', component: OperationComponent ,canActivate: [BAdminEmp]},
+  { path: 'Book/read/:_id', component: BookOperationReadComponent ,canActivate: [BAdminEmp]},
+  { path: 'Book/borrow/:id', component: BookOperationBorrowComponent ,canActivate: [BAdminEmp]},
   { path: 'error400', component: Error400Component },
   { path: 'error404', component: Error404Component },
   { path: 'error403', component: Error403Component },
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
   
-  { path: 'Admins', component: AdminListComponent },
-  { path: 'Admins/add', component: AdminAddComponent},
-  { path: 'Admin/details/:_id', component: AdminDetailsComponent},
-  { path: 'Admin/edit/:_id', component: AdminEditComponent},
+  { path: 'Admins', component: AdminListComponent ,canActivate: [OwnerBA]},
+  { path: 'Admins/add', component: AdminAddComponent ,canActivate: [OwnerBA]},
+  { path: 'Admin/details/:_id', component: AdminDetailsComponent ,canActivate: [OwnerBA]},
+  { path: 'Admin/edit/:_id', component: AdminEditComponent ,canActivate: [OwnerBA]},
   
-  { path: 'BasicAdmin', component: BasicAdminListComponent},
-  { path: 'BasicAdmin/add', component: BasicAdminAddComponent},
-  { path: 'BasicAdmin/details/:_id', component:BADetailsComponent},
-  { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent},
+  { path: 'BasicAdmin', component: BasicAdminListComponent ,canActivate: [Owner]},
+  { path: 'BasicAdmin/add', component: BasicAdminAddComponent ,canActivate: [Owner]},
+  { path: 'BasicAdmin/details/:_id', component:BADetailsComponent ,canActivate: [OwnerBA]},
+  { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent ,canActivate: [OwnerBA]},
   { path: '**', component: BasicAdminListComponent },
 
 ];
