@@ -7,7 +7,7 @@ import { MemberComponent } from './Layout/pages/member/member.component';
 //import editmember
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
 //import admin
-import { AdminComponent } from './Layout/pages/admin/admin.component';
+import { AdminListComponent } from './Layout/pages/Admin/admin-list/admin-list.component';
 //import employee
 import { EmployeeComponent } from './Layout/pages/employee/employee.component';
 //import profile
@@ -32,13 +32,20 @@ import { Error403Component } from './Layout/pages/errors/error403/error403.compo
 import { Error500Component } from './Layout/pages/errors/error500/error500.component';
 //import Error503Component
 import { Error503Component } from './Layout/pages/errors/error503/error503.component';
+import { AdminAddComponent } from './Layout/pages/Admin/admin-add/admin-add.component';
+import { AdminDetailsComponent } from './Layout/pages/Admin/admin-details/admin-details.component';
+import { BasicAdminListComponent } from './Layout/pages/BasicAdmin/basic-admin-list/basic-admin-list.component';
+import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-add/basic-admin-add.component';
+import { BADetailsComponent } from './Layout/pages/BasicAdmin/BasicAdmin-details/ba-details.component';
+import { AdminEditComponent } from './Layout/pages/Admin/admin-edit/admin-edit.component';
+import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-edit/basic-admin-edit.component';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'member', component: MemberComponent },
   { path: 'editmember', component: EditmemberComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'Admins', component: AdminListComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'allbook', component: AllbookComponent },
@@ -52,6 +59,16 @@ const routes: Routes = [
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
   
+  { path: 'Admins', component: AdminListComponent },
+  { path: 'Admins/add', component: AdminAddComponent},
+  { path: 'Admin/details/:_id', component: AdminDetailsComponent},
+  { path: 'Admin/edit/:_id', component: AdminEditComponent},
+  
+  { path: 'BasicAdmin', component: BasicAdminListComponent},
+  { path: 'BasicAdmin/add', component: BasicAdminAddComponent},
+  { path: 'BasicAdmin/details/:_id', component:BADetailsComponent},
+  { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent},
+  { path: '**', component: BasicAdminListComponent },
 
 
 

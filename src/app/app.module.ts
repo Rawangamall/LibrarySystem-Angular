@@ -8,7 +8,8 @@ import { NavbarComponent } from './Layout/navbar/navbar.component';
 import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component';
 import { MemberComponent } from './Layout/pages/member/member.component';
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
-import { AdminComponent } from './Layout/pages/admin/admin.component';
+import {AdminListComponent } from './Layout/pages/Admin/admin-list/admin-list.component';
+import { AdminAddComponent } from './Layout/pages/Admin/admin-add/admin-add.component';
 import { EmployeeComponent } from './Layout/pages/employee/employee.component';
 import { ProfileComponent } from './Layout/pages/profile/profile.component';
 import { AllbookComponent } from './Layout/pages/allbook/allbook.component';
@@ -25,6 +26,17 @@ import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AdminDetailsComponent } from './Layout/pages/Admin/admin-details/admin-details.component';
+import { BADetailsComponent } from './Layout/pages/BasicAdmin/BasicAdmin-details/ba-details.component';
+import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-add/basic-admin-add.component';
+import { BasicAdminListComponent } from './Layout/pages/BasicAdmin/basic-admin-list/basic-admin-list.component';
+import { AdminEditComponent } from './Layout/pages/Admin/admin-edit/admin-edit.component';
+import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-edit/basic-admin-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +46,7 @@ import { LoginappComponent } from './loginapp/loginapp.component';
     DashboardComponent,
     MemberComponent,
     EditmemberComponent,
-    AdminComponent,
+    AdminListComponent,
     EmployeeComponent,
     ProfileComponent,
     AllbookComponent,
@@ -50,8 +62,19 @@ import { LoginappComponent } from './loginapp/loginapp.component';
     DashboardappComponent,
     WebappComponent,
     LoginappComponent,
+    AdminAddComponent,
+    AdminDetailsComponent,
+    BADetailsComponent,
+    BasicAdminAddComponent,
+    BasicAdminListComponent,
+    AdminEditComponent,
+    BasicAdminEditComponent,
   ],
   imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
