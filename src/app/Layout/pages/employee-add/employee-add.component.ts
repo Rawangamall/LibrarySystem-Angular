@@ -154,7 +154,7 @@ export class EmployeeAddComponent {
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
-  constructor(public employeeService:EmployeeService, public router:Router ,  private authService: AuthService   ){}
+  constructor(public employeeService:EmployeeService, public router:Router ){}
   save(){
     this.employeeService.addEmployee(this.emp).subscribe(data =>{
       console.log(data);

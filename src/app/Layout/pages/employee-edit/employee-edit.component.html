@@ -10,53 +10,58 @@
         </div>
         <!-- row -->
         <div class="mb-3 shadow p-5">
-            <form action="">
+            <form action="" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="" class="form-label">ID</label>
-                    <input type="text" class="form-control" name="edit" aria-describedby="helpId"
+                    <!-- <label for="" class="form-label">ID</label> -->
+                    <input type="hidden" class="form-control" name="edit" aria-describedby="helpId"
                         placeholder="{{emp._id}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.firstName}}"  [(ngModel)]="emp.firstName" [ngModelOptions]="{standalone: true}"
+                    <input type="text" class="form-control" name="fname" aria-describedby="helpId" value="{{emp.firstName}}"  [(ngModel)]="emp.firstName" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.lastName}}"  [(ngModel)]="emp.lastName" [ngModelOptions]="{standalone: true}"
+                    <input type="text" class="form-control" name="lname" aria-describedby="helpId" value="{{emp.lastName}}"  [(ngModel)]="emp.lastName" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.email}}"  [(ngModel)]="emp.email" [ngModelOptions]="{standalone: true}"
+                    <input type="email" class="form-control" name="email" aria-describedby="helpId" value="{{emp.email}}"  [(ngModel)]="emp.email" [ngModelOptions]="{standalone: true}"
                          required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.password}}"  [(ngModel)]="emp.password" [ngModelOptions]="{standalone: true}"
+                    <input type="password" class="form-control" name="password" aria-describedby="helpId" value="{{emp.password}}"  [(ngModel)]="emp.password" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Birthdate</label>
-                    <input type="date" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.birthdate}}"  [(ngModel)]="emp.birthdate" [ngModelOptions]="{standalone: true}"
+                    <input type="date" class="form-control" name="birthdate" aria-describedby="helpId" value="{{emp.birthdate}}"  [(ngModel)]="emp.birthdate" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Hire Date</label>
-                    <input type="date" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.hireDate}}"  [(ngModel)]="emp.hireDate" [ngModelOptions]="{standalone: true}"
+                    <input type="date" class="form-control" name="hiredate" aria-describedby="helpId" value="{{emp.hireDate}}"  [(ngModel)]="emp.hireDate" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Salary</label>
-                    <input type="text" class="form-control" name="edit" aria-describedby="helpId" value="{{emp.salary}}"  [(ngModel)]="emp.salary" [ngModelOptions]="{standalone: true}"
+                    <input type="text" class="form-control" name="salary" aria-describedby="helpId" value="{{emp.salary}}"  [(ngModel)]="emp.salary" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="mb-3">
                   <label for="" class="form-label">Image</label>
-                  <input type="file" class="form-control" name="edit" placeholder="" aria-describedby="fileHelpId"
+                  <input type="file" class="form-control" name="image" placeholder="" aria-describedby="fileHelpId"
                   value="{{emp.image}}"  [(ngModel)]="emp.image">
                 </div>
-                <button class="btn btn-primary" (click)="update()">Submit</button>
+                <button class="btn btn-primary" (click)="validateEmail();">Submit</button>
+                <div *ngIf="errorMessage.length > 0" class="alert alert-danger mt-3">
+                    <ul>
+                      <li *ngFor="let error of errorMessage">{{ error }}</li>
+                    </ul>
+                  </div>
             </form>
         </div>
     </div>
