@@ -46,9 +46,20 @@ export class AuthService {
           throw new Error('authToken not found in localStorage');
         }
         const decodedToken: DecodedToken = jwt_decode(authtoken);
-        console.log(decodedToken.role)
+        console.log(decodedToken.role);
         return decodedToken.role;
       }
+
+      getEmail(): string{
+        const authtoken = localStorage.getItem('authToken');
+        if (!authtoken) {
+          throw new Error('authToken not found in localStorage');
+        }
+        const decodedToken: DecodedToken = jwt_decode(authtoken);
+        console.log(decodedToken.email);
+        return decodedToken.email;
+      }
+      
       
       
       //   logout() {

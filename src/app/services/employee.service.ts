@@ -42,7 +42,7 @@ export class EmployeeService {
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner"||role =="Employee") {
     this.http.get<Employee>("http://localhost:8080/Employees", { headers }).subscribe(data=>{
       console.log(data);
     })
