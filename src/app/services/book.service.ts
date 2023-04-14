@@ -20,10 +20,15 @@ export class BookService {
   mostBorrowedURL="http://localhost:8080/Bookoper/mostBorrowedBooks";
   mostReadingURL="http://localhost:8080/Bookoper/mostReadingBooks";
   mostPopularURL="http://localhost:8080/Bookoper/mostPopularBooks";
+  baseurlAvailable="http://localhost:8080/Book/available";
 
   getAllBooks(): Observable<Book[]>{
     const headers = this.authService.setAuthTokenHeader();   
       return this.http.get<Book[]>(this.baseurl, {headers});
+  }
+  getAvailableBooks(): Observable<Book[]>{
+    const headers = this.authService.setAuthTokenHeader();   
+      return this.http.get<Book[]>(this.baseurlAvailable, {headers});
   }
   getFilteredBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.baseurlFiltered);

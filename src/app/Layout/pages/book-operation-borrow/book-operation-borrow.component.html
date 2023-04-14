@@ -20,12 +20,31 @@
                             <div class="col-md-7 col-xxl-12">
                                 <div class="new-arrival-content position-relative">
                                     <form>
+                                        
                                         <div class="form-row">
+                                            <!--
                                             <div class="form-group col-md-6">
                                                 <input type="text" placeholder="Enter Member ID"
                                                     [(ngModel)]="bookOper.memberID" [ngModelOptions]="{standalone: true}"
                                                     class="form-control">
                                             </div>
+                                            -->
+                                            
+                                                <div class="form-group col-md-6">
+                                                    <!--
+                                                <select class="form-control">
+                                                    
+                                                    <option *ngFor="let item of members" value="item._id">{{item._id}}</option>
+
+                                                  </select>
+                                                -->
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" placeholder="Enter Member ID"
+                                                        [(ngModel)]="bookOper.memberID" [ngModelOptions]="{standalone: true}"
+                                                        class="form-control">
+                                                </div>
+                                              </div>
+                                            
                                         </div>
                                         <button class="btn btn-primary" (click)="borrow()" type="submit">Submit</button>
                                     </form>                                 
