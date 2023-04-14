@@ -15,33 +15,54 @@
                 <div class="form-group">
                     <label for="" class="form-label">ID</label>
                     <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                        placeholder="18620" readonly>
+                        placeholder="{{book._id}}" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.title}}"  [(ngModel)]="book.title" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">auther</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                    <label for="" class="form-label">Auther</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.author}}"  [(ngModel)]="book.author" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">publisher</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                    <label for="" class="form-label">Publisher</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.publisher}}"  [(ngModel)]="book.publisher" [ngModelOptions]="{standalone: true}"
+                         required>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Publishing Date</label>
+                    <input type="date" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.publishingDate}}"  [(ngModel)]="book.publishingDate" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">category</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                    <label for="" class="form-label">Category</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.category}}"  [(ngModel)]="book.category" [ngModelOptions]="{standalone: true}"
+                        placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Edition</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.edition}}"  [(ngModel)]="book.edition" [ngModelOptions]="{standalone: true}"
+                        placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Number of pages</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.pages}}"  [(ngModel)]="book.pages" [ngModelOptions]="{standalone: true}"
+                        placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Number Of Copies</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{book.noOfCopies}}"  [(ngModel)]="book.noOfCopies" [ngModelOptions]="{standalone: true}"
                         placeholder="" required>
                 </div>
                 <div class="mb-3">
-                  <label for="" class="form-label">Choose Image</label>
-                  <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId" required>
+                  <label for="" class="form-label">Image</label>
+                  <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId"
+                  value="{{book.image}}"  [(ngModel)]="book.image">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" (click)="update()">Submit</button>
             </form>
         </div>
     </div>

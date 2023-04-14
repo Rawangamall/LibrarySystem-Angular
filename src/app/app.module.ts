@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { NavbarComponent } from './Layout/navbar/navbar.component';
 import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component';
 import { MemberComponent } from './Layout/pages/member/member.component';
+import { MemberAddComponent } from './Layout/pages/member-add/member-add.component';
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
 import {AdminListComponent } from './Layout/pages/Admin/admin-list/admin-list.component';
 import { AdminAddComponent } from './Layout/pages/Admin/admin-add/admin-add.component';
@@ -25,11 +29,19 @@ import { Error503Component } from './Layout/pages/errors/error503/error503.compo
 import { DashboardappComponent } from './dashboardapp/dashboardapp.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { LoginappComponent } from './loginapp/loginapp.component';
+import { MemberProfileComponent } from './Layout/pages/member-profile/member-profile.component';
+import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
+import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
+import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
+import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
+import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import {HttpClientModule} from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+
+
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+
 import { AdminDetailsComponent } from './Layout/pages/Admin/admin-details/admin-details.component';
 import { BADetailsComponent } from './Layout/pages/BasicAdmin/BasicAdmin-details/ba-details.component';
 import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-add/basic-admin-add.component';
@@ -45,6 +57,7 @@ import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-e
     NavbarComponent,
     DashboardComponent,
     MemberComponent,
+    MemberAddComponent,
     EditmemberComponent,
     AdminListComponent,
     EmployeeComponent,
@@ -69,14 +82,24 @@ import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-e
     BasicAdminListComponent,
     AdminEditComponent,
     BasicAdminEditComponent,
+    BookAddComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    BookOperationBorrowComponent,
+    BookOperationReadComponent,
+    FilteredBooksComponent,   
+     MemberProfileComponent,
+    
   ],
+  
   imports: [
-    CommonModule,
     RouterModule,
-    FormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

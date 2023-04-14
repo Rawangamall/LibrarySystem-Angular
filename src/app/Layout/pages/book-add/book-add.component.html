@@ -1,0 +1,77 @@
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+        <!-- Add Project -->
+        <div class="modal fade" id="addProjectSidebar">
+          </div>
+        <div class="row page-titles mx-0">
+       
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12"  >
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row m-b-30">
+                            <div class="col-md-5 col-xxl-12">
+                                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                                    <h2>Add New Book</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-xxl-12">
+                                <div class="new-arrival-content position-relative">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" placeholder="Title" [(ngModel)]="book.title" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <input type="text" placeholder="Author" [(ngModel)]="book.author" [ngModelOptions]="{standalone: true}"
+                                                class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" placeholder="Publisher" [(ngModel)]="book.publisher" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <input type="date" placeholder="Publishing Date" [(ngModel)]="book.publishingDate" [ngModelOptions]="{standalone: true}"
+                                                class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" placeholder="Category" [(ngModel)]="book.category" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <input type="text" placeholder="Edition" [(ngModel)]="book.edition" [ngModelOptions]="{standalone: true}"
+                                                class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" placeholder="Number of Pages" [(ngModel)]="book.pages" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <input type="text" placeholder="Number Of Copies" [(ngModel)]="book.noOfCopies" [ngModelOptions]="{standalone: true}"
+                                                class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <input type="file" placeholder="Image" [(ngModel)]="book.image" [ngModelOptions]="{standalone: true}"
+                                                 class="form-control">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary" (click)="save()" type="submit">Submit</button>
+                                    </form>                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                   
+        </div>
+    </div>
+</div>
