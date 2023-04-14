@@ -18,13 +18,11 @@ export class EmployeeService {
   }
   getOneEmployee(id:number){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.get<Employee>(this.baseURL2+id , { headers });
 
   }
   addEmployee(emp:Employee){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.post<Employee>(this.baseURL,emp , { headers });
 
   }
