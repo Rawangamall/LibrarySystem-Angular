@@ -27,4 +27,5 @@ export class BookdetailsComponent {
       this.router.navigateByUrl('/Book');
     })
   } 
+  
 }

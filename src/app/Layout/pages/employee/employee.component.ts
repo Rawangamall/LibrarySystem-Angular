@@ -66,8 +66,6 @@ export class EmployeeComponent {
   
   ngOnInit(){
 
-    // Check if admin or BAdmin to view employee data
-  //  const userRole = this.authService.getRole();
     this.employeeService.getAllEmployees().subscribe(data=>{
       this.emps = data;
     });

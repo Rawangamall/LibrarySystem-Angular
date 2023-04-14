@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member.model';
 import { Router } from '@angular/router';
 import { MemberService } from 'src/app/services/member.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MemberComponent {
   currentPage = 1;
    pageCount=1;
    members: Member[] = []; 
-  constructor(public memberService:MemberService, public router:Router){
+  constructor(public memberService:MemberService, private authService: AuthService , public router:Router){
   }
   delete(id:number){
     if(confirm('Are you sure you want to delete this book?')){

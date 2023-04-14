@@ -22,45 +22,61 @@ export class BookService {
 
   getAllBooks(): Observable<Book[]>{
     const headers = this.authService.setAuthTokenHeader();   
-    const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner" || role=="Employee") {
       return this.http.get<Book[]>(this.baseurl, {headers});
-    }else{ throw new Error('Unauthorized access: user must be an admin');}
   }
 
   getOneBook(id:number): Observable<Book>{
-    return this.http.get<Book>(this.baseurl+"/"+id);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book>(this.baseurl+"/"+id, { headers });
   }
   deleteBook(id:number){
+    const headers = this.authService.setAuthTokenHeader();   
     location.reload();
-    return this.http.delete<Book>(this.baseurl+"/"+id);
+    return this.http.delete<Book>(this.baseurl+"/"+id, { headers });
   }
   updateBook(book:Book, id:number){
-    return this.http.put<Book>(this.baseurl3+"/"+id,book);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.put<Book>(this.baseurl3+"/"+id,book, { headers });
   }
   addBook(book: Book){
-    return this.http.post<Book>(this.baseurl2,book);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.post<Book>(this.baseurl2,book, { headers });
   }
   newArrivedBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.newArrivedURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.newArrivedURL, { headers });
   }
   mostPopularBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostPopularURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostPopularURL, { headers });
   }
   mostBorrowedBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostBorrowedURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostBorrowedURL, { headers });
   }
   mostReadingBooks(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.mostReadingURL);
+    const headers = this.authService.setAuthTokenHeader();   
+    return this.http.get<Book[]>(this.mostReadingURL, { headers });
   }
+
+  searchForBook(searchKey: string, title: string, publisher:string , author:string): Observable<any> {
+    const requestBody = {
+      searchKey: searchKey,
+      title: title,
+      publisher: publisher,
+      author: author
+     
+    };
+    const headers = this.authService.setAuthTokenHeader();   
+
+    return this.http.post(`${this.baseurl}/search`, requestBody , { headers });
+  }
+
 
   constructor(public http:HttpClient, public router:Router, private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner" || role=="Employee") {
       this.http.get<Book>("http://localhost:8080/Book", { headers }).subscribe(data=>{
         console.log(data); 
     })
-  }else{ throw new Error('Unauthorized access: user must be an admin');}
 }
 }

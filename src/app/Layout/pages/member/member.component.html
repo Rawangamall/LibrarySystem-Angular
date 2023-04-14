@@ -23,7 +23,7 @@
   
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 col-lg-6" *ngFor="let member of members.slice((currentPage-1)*6, currentPage*6)">
+      <div class="col-xl-3 col-xxl-6 col-sm-6"  *ngFor="let member of members.slice((currentPage-1)*6, currentPage*6) ">
         <div class="card contact-bx hvr">
           <div class="card-body">
             <div class="media">
@@ -58,10 +58,10 @@
               </button>
             </li>
             <ng-container *ngFor="let page of getPages()">
-                <li class="page-item" [class.active]="page === currentPage">
-                    <a class="page-link" href="javascript:void(0)" (click)="currentPage = page">{{page}}</a>
-                  </li>
-                </ng-container>
+              <li class="page-item" [class.active]="page === currentPage">
+                  <a class="page-link" href="javascript:void(0)" (click)="currentPage = page">{{page}}</a>
+                </li>
+              </ng-container>
                 <li class="page-item page-indicator">
                   <button class="page-link" href="javascript:void(0)" [disabled]="currentPage === getPages().length" (click)="currentPage = currentPage + 1">
                     <i class="la la-angle-right"></i>

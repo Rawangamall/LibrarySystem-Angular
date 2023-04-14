@@ -20,7 +20,7 @@ export class MemberProfileComponent {
       const memberId = params['id'];
       // console.log(memberId);
       this.memeberService.getOneMember(memberId).subscribe(data=>{
-      // console.log(data);
+       console.log(data);
         this.member = data;
       })
     });

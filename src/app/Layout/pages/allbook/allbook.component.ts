@@ -11,6 +11,7 @@ import { BookService } from 'src/app/services/book.service';
 export class AllbookComponent {
   books:Book[]=[];
   searchText='';
+  searchKey = '';
   currentPage = 1;
   constructor(public bookService:BookService, public router:Router){
   }
@@ -31,6 +32,25 @@ export class AllbookComponent {
         console.log(response));
     }
   }
+  search() {
+    this.bookService.searchForBook(this.searchKey, '','','').subscribe(
+      (response) => {
+        this.books = response.data;
+      },
+      (error) => {
+        if (error.status === 500) {
+          // if the status code is 500, extract the error message from the response body
+          const errorMessage = error.error.message;
+          console.error(errorMessage);
+          // clear the members array to remove the previous search results
+          this.books = [];
+        } else {
+          console.error(error);
+        }
+      }
+    );
+  }
+
   ngOnInit(){
     this.bookService.getAllBooks().subscribe(data=>{
       this.books = data;

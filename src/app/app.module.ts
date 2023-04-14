@@ -75,9 +75,7 @@ import { BookOperationReadComponent } from './Layout/pages/book-operation-read/b
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule,
-    // Ng2SearchPipeModule 
-
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
