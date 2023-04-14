@@ -154,6 +154,6 @@ if(isValidPassword == true ){
  
     if(this.errorMessage.length === 0){
       this.save();
-    }
+       }
     }
 }
