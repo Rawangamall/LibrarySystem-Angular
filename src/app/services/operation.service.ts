@@ -34,11 +34,6 @@ export class OperationService {
     return this.http.put<Operation[]>(this.baseurl3+id,bookOper, { headers });
   }
   returnBookRead(id:number,bookOper: Operation){
-<<<<<<< HEAD
-    const headers = this.authService.setAuthTokenHeader();
-    return this.http.put<Operation[]>(this.baseurl4+id,bookOper, { headers });
-  }
-=======
     const headers = this.authService.setAuthTokenHeader();   
     return this.http.put<Operation[]>(this.baseurl4+id,bookOper, { headers });
   }
@@ -48,7 +43,6 @@ export class OperationService {
     return this.http.put<Operation[]>(this.baseurl5,bookOper, { headers });
   }
   
->>>>>>> 6e2dd2f2f57d6b89e20b4cf5d3d31f0e643d6f6c
 constructor(public http:HttpClient , public router:Router, private authService: AuthService) {
 }
 }
