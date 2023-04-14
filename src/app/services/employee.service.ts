@@ -18,13 +18,11 @@ export class EmployeeService {
   }
   getOneEmployee(id:number){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.get<Employee>(this.baseURL2+id , { headers });
 
   }
   addEmployee(emp:Employee){
     const headers = this.authService.setAuthTokenHeader();
-    const role = this.authService.getRole();
     return this.http.post<Employee>(this.baseURL,emp , { headers });
 
   }
@@ -39,10 +37,28 @@ export class EmployeeService {
     return this.http.put<Employee>(this.baseURL2+id,emp , { headers });
   }
 
+  searchForMember(searchKey: string, firstName: string, lastName: string): Observable<any> {
+    const requestBody = {
+      searchKey: searchKey,
+      firstName: firstName,
+      lastName:lastName
+     
+    };
+    const headers = this.authService.setAuthTokenHeader();   
+    const role = this.authService.getRole();
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
+      return this.http.post(`${this.baseURL}search`, requestBody , { headers });
+    
+   }else{ throw new Error('Unauthorized access: user must be an admin');}
+
+   
+  }
+   // return this.http.post(`${this.baseURL}/search`, requestBody);
+    // return this.http.get<Employee[]>(this.baseURL , { headers });
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
     const role = this.authService.getRole();
-    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner") {
+    if (role =="BasicAdmin"|| role =="Admin"|| role =="Owner"||role =="Employee") {
     this.http.get<Employee>("http://localhost:8080/Employees", { headers }).subscribe(data=>{
       console.log(data);
     })

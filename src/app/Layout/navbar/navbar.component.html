@@ -15,7 +15,7 @@
             <li><a href="/member">Member</a></li>
             <li><a href="/admin">Admin</a></li>
             <li><a href="basic-admin.html">Basic Admin</a></li>
-            <li><a href="/employee">Employee</a></li>
+            <li><a href="/employee" *ngIf="role==='Admin'||role==='BasicAdmin'||role=='Owener'">Employee</a></li>
             <li>
               <a
                 class="has-arrow"

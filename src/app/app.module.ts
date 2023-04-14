@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -34,7 +35,6 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -76,7 +76,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

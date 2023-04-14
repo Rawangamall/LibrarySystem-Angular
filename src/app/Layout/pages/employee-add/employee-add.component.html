@@ -19,56 +19,75 @@
                             </div>
                             <div class="col-md-7 col-xxl-12">
                                 <div class="new-arrival-content position-relative">
-                                    <form enctype="multipart/form-data" method="post">
+                                    <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" method="post">  
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                             <label class="form-label">First Name</label>
-                                                <input type="text" placeholder="First Name" [(ngModel)]="emp.firstName" [ngModelOptions]="{standalone: true}"
+                                                <input type="text" placeholder="First Name" name="fname" [(ngModel)]="emp.firstName" [ngModelOptions]="{standalone: true}"
                                                     class="form-control">
                                             </div>
                                             <div class="form-group col-md-6">
                                             <label class="form-label">Last Name</label>
-                                            <input type="text" placeholder="Last Name" [(ngModel)]="emp.lastName" [ngModelOptions]="{standalone: true}"
+                                            <input type="text" placeholder="Last Name" name="lname" [(ngModel)]="emp.lastName" [ngModelOptions]="{standalone: true}"
                                                 class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                             <label class="form-label">Email</label>
-                                                <input type="email" placeholder="Email" [(ngModel)]="emp.email" [ngModelOptions]="{standalone: true}"
-                                                    class="form-control">
+                                                <input type="email" placeholder="Email" name="email" [(ngModel)]="emp.email" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control" >
                                             </div>
+
                                             <div class="form-group col-md-6">
                                             <label class="form-label">Password</label>
-                                            <input type="password" placeholder="Password" [(ngModel)]="emp.password" [ngModelOptions]="{standalone: true}"
+                                            <input type="password" placeholder="Password" name="password" [(ngModel)]="emp.password" [ngModelOptions]="{standalone: true}"
                                                 class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Birthday</label>
-                                                <input type="date" placeholder="Birthday" [(ngModel)]="emp.birthdate" [ngModelOptions]="{standalone: true}"
-                                                    class="form-control">
+                                                <!-- <input type="date" placeholder="Birthday" [(ngModel)]="emp.birthdate" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control" required #birthdate="ngModel">
+                                                    <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)">
+                                                        <div *ngIf="birthdate.errors?.['required']">
+                                                           Please enter your birthdate.
+                                                        </div>
+                                                     </div>
+                                            </div> -->
+                                            <input type="date" placeholder="Birthday" name="birthdate" [(ngModel)]="emp.birthdate" 
+                                            class="form-control" required >
+                                            <!-- <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)">
+                                                <div *ngIf="birthdate.errors?.['required']">
+                                                   Please enter your birthdate.
+                                                </div>
+                                             </div> -->
                                             </div>
                                             <div class="form-group col-md-6">
                                             <label>Hire Date</label>
                                             <input type="date" placeholder="Hire Date" [(ngModel)]="emp.hireDate" [ngModelOptions]="{standalone: true}"
-                                                class="form-control">
+                                                class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Salary</label>
-                                                <input type="text" placeholder="Salary" [(ngModel)]="emp.salary" [ngModelOptions]="{standalone: true}"
-                                                    class="form-control">
+                                                <input type="number" name="salary" placeholder="Salary" [(ngModel)]="emp.salary" [ngModelOptions]="{standalone: true}"
+                                                    class="form-control" required pattern="[0-9]*">
                                             </div>
-                                            <div class="form-group col-md-6">
+                                            <!-- <div class="form-group col-md-6">
                                                 <label>Image</label>
                                                 <input class="form-control" type="file" placeholder="Image" [(ngModel)]="emp.image" [ngModelOptions]="{standalone: true}"
                                                     class="form-control">
-                                            </div>
+                                            </div> -->
                                         </div>
-                                        <button class="btn btn-primary" (click)="save()" type="submit">Submit</button>
+                                        <button class="btn btn-primary" (click)="validateEmail();" type="submit">Submit</button>
+                                        <div *ngIf="errorMessage.length > 0" class="alert alert-danger mt-3">
+                                            <ul>
+                                              <li *ngFor="let error of errorMessage">{{ error }}</li>
+                                            </ul>
+                                          </div>
                                     </form>                                 
                             </div>
                         </div>

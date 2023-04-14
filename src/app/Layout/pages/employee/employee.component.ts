@@ -10,8 +10,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent {
-  constructor(public employeeService: EmployeeService,    private authService: AuthService    ,public router:Router){}
+  constructor(public employeeService: EmployeeService, private authService: AuthService, public router:Router){}
   currentPage = 1;
+  searchKey = '';
   date=Date.now();
   date2=this.date.toString();
   emp:Employee=new Employee(0,"","","","","",this.date2,0,"");
@@ -44,13 +45,28 @@ export class EmployeeComponent {
     }
   }
 
+  search() {
+    this.employeeService.searchForMember(this.searchKey, '','').subscribe(
+      (response) => {
+        this.emps = response.data;
+      },
+      (error) => {
+        if (error.status === 500) {
+          // if the status code is 500, extract the error message from the response body
+          const errorMessage = error.error.message;
+          console.error(errorMessage);
+          // clear the members array to remove the previous search results
+          this.emps = [];
+        } else {
+          console.error(error);
+        }
+      }
+    );
+  }
+  
   ngOnInit(){
-
     this.employeeService.getAllEmployees().subscribe(data=>{
       this.emps = data;
     });
-
-  
-
 }
 } 
