@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 
 interface DecodedToken {
+  id: string;
   email: string;
   role: string;
 }
@@ -50,6 +51,16 @@ export class AuthService {
         return decodedToken.role;
       }
 
+      getID(): string{
+        const authtoken = localStorage.getItem('authToken');
+        if (!authtoken) {
+          throw new Error('authToken not found in localStorage');
+        }
+        const decodedToken: DecodedToken = jwt_decode(authtoken);
+        console.log(decodedToken.id);
+        return decodedToken.id;
+      }
+      
       getEmail(): string{
         const authtoken = localStorage.getItem('authToken');
         if (!authtoken) {
@@ -59,8 +70,6 @@ export class AuthService {
         console.log(decodedToken.email);
         return decodedToken.email;
       }
-      
-      
       
       //   logout() {
       //     localStorage.removeItem('authToken');

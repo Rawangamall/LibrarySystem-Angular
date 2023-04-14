@@ -203,12 +203,12 @@
 	}();
 
 	
-	jQuery(window).on('load',function(){
-		setTimeout(function(){
-			dzChartlist.load();
-		}, 1000); 
+	// jQuery(window).on('load',function(){
+	// 	setTimeout(function(){
+	// 		dzChartlist.load();
+	// 	}, 1000); 
 		
-	});
+	// });
 
 	jQuery(window).on('resize',function(){
 		
