@@ -12,7 +12,8 @@ import { DashboardComponent } from './Layout/pages/dashboard/dashboard.component
 import { MemberComponent } from './Layout/pages/member/member.component';
 import { MemberAddComponent } from './Layout/pages/member-add/member-add.component';
 import { EditmemberComponent } from './Layout/pages/editmember/editmember.component';
-import { AdminComponent } from './Layout/pages/admin/admin.component';
+import {AdminListComponent } from './Layout/pages/Admin/admin-list/admin-list.component';
+import { AdminAddComponent } from './Layout/pages/Admin/admin-add/admin-add.component';
 import { EmployeeComponent } from './Layout/pages/employee/employee.component';
 import { ProfileComponent } from './Layout/pages/profile/profile.component';
 import { AllbookComponent } from './Layout/pages/allbook/allbook.component';
@@ -35,7 +36,17 @@ import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edi
 import { BookOperationBorrowComponent } from './Layout/pages/book-operation-borrow/book-operation-borrow.component';
 import { BookOperationReadComponent } from './Layout/pages/book-operation-read/book-operation-read.component';
 import { FilteredBooksComponent } from './Layout/pages/filtered-books/filtered-books.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+
+import { RouterModule, Routes } from '@angular/router';
+
+import { AdminDetailsComponent } from './Layout/pages/Admin/admin-details/admin-details.component';
+import { BADetailsComponent } from './Layout/pages/BasicAdmin/BasicAdmin-details/ba-details.component';
+import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-add/basic-admin-add.component';
+import { BasicAdminListComponent } from './Layout/pages/BasicAdmin/basic-admin-list/basic-admin-list.component';
+import { AdminEditComponent } from './Layout/pages/Admin/admin-edit/admin-edit.component';
+import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-edit/basic-admin-edit.component';
 
 
 @NgModule({
@@ -47,7 +58,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MemberComponent,
     MemberAddComponent,
     EditmemberComponent,
-    AdminComponent,
+    AdminListComponent,
     EmployeeComponent,
     ProfileComponent,
     AllbookComponent,
@@ -63,16 +74,25 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DashboardappComponent,
     WebappComponent,
     LoginappComponent,
-    MemberProfileComponent,
+    AdminAddComponent,
+    AdminDetailsComponent,
+    BADetailsComponent,
+    BasicAdminAddComponent,
+    BasicAdminListComponent,
+    AdminEditComponent,
+    BasicAdminEditComponent,
     BookAddComponent,
     EmployeeAddComponent,
     EmployeeEditComponent,
     BookOperationBorrowComponent,
     BookOperationReadComponent,
-    FilteredBooksComponent,
-   
+    FilteredBooksComponent,   
+     MemberProfileComponent,
+    
   ],
+  
   imports: [
+    RouterModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

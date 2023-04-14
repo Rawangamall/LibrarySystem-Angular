@@ -12,7 +12,7 @@ import { MemberAddComponent } from './Layout/pages/member-add/member-add.compone
 import { MemberProfileComponent } from './Layout/pages/member-profile/member-profile.component';
 
 //import admin
-import { AdminComponent } from './Layout/pages/admin/admin.component';
+import { AdminListComponent } from './Layout/pages/Admin/admin-list/admin-list.component';
 //import employee
 import { EmployeeComponent } from './Layout/pages/employee/employee.component';
 //import profile
@@ -37,6 +37,13 @@ import { Error403Component } from './Layout/pages/errors/error403/error403.compo
 import { Error500Component } from './Layout/pages/errors/error500/error500.component';
 //import Error503Component
 import { Error503Component } from './Layout/pages/errors/error503/error503.component';
+import { AdminAddComponent } from './Layout/pages/Admin/admin-add/admin-add.component';
+import { AdminDetailsComponent } from './Layout/pages/Admin/admin-details/admin-details.component';
+import { BasicAdminListComponent } from './Layout/pages/BasicAdmin/basic-admin-list/basic-admin-list.component';
+import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-add/basic-admin-add.component';
+import { BADetailsComponent } from './Layout/pages/BasicAdmin/BasicAdmin-details/ba-details.component';
+import { AdminEditComponent } from './Layout/pages/Admin/admin-edit/admin-edit.component';
+import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-edit/basic-admin-edit.component';
 import { BookAddComponent } from './Layout/pages/book-add/book-add.component';
 import { EmployeeAddComponent } from './Layout/pages/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './Layout/pages/employee-edit/employee-edit.component';
@@ -54,7 +61,6 @@ const routes: Routes = [
   { path: 'editmember/:_id', component: EditmemberComponent ,canActivate: [BAdminEmp]},
   { path: 'member-add', component: MemberAddComponent ,canActivate: [BAdminEmp]},
   { path: 'memberProfile/:id', component: MemberProfileComponent ,canActivate: [BAdminEmp]},
-  { path: 'admin', component: AdminComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'employee/add', component: EmployeeAddComponent },
   { path: 'profile/:id', component: ProfileComponent },
@@ -73,6 +79,23 @@ const routes: Routes = [
   { path: 'error403', component: Error403Component },
   { path: 'error500', component: Error500Component },
   { path: 'error503', component: Error503Component },
+  
+  { path: 'Admins', component: AdminListComponent },
+  { path: 'Admins/add', component: AdminAddComponent},
+  { path: 'Admin/details/:_id', component: AdminDetailsComponent},
+  { path: 'Admin/edit/:_id', component: AdminEditComponent},
+  
+  { path: 'BasicAdmin', component: BasicAdminListComponent},
+  { path: 'BasicAdmin/add', component: BasicAdminAddComponent},
+  { path: 'BasicAdmin/details/:_id', component:BADetailsComponent},
+  { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent},
+  { path: '**', component: BasicAdminListComponent },
+
+
+
+
+
+
   { path: 'login', component: LoginappComponent },
 ];
 

@@ -12,11 +12,10 @@ import { Member }  from '../models/member.model';
   providedIn: 'root'
 })
 export class MemberService {
- 
 
   baseurl="http://localhost:8080/members";
   baseURL2 = 'http://localhost:8080/member/';
-  // baseurl3="http://localhost:8080/members/update";
+ 
 
   getAllMembers(): Observable<Member[]>{
     const headers = this.authService.setAuthTokenHeader();   
@@ -47,6 +46,20 @@ export class MemberService {
     console.log("serviceee",this.baseURL2+id,member);
     return this.http.put<Member>(this.baseURL2+id,member, { headers });
   }
+ 
+
+  searchForMember(searchKey: string, fullName: string): Observable<any> {
+    const requestBody = {
+      searchKey: searchKey,
+      fullName: fullName,
+     
+    };
+    const headers = this.authService.setAuthTokenHeader();   
+
+    return this.http.post(`${this.baseurl}/search`, requestBody , { headers });
+  }
+
+  
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();   
 

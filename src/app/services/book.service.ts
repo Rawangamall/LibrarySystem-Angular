@@ -62,6 +62,20 @@ export class BookService {
     return this.http.get<Book[]>(this.mostReadingURL, { headers });
   }
 
+  searchForBook(searchKey: string, title: string, publisher:string , author:string): Observable<any> {
+    const requestBody = {
+      searchKey: searchKey,
+      title: title,
+      publisher: publisher,
+      author: author
+     
+    };
+    const headers = this.authService.setAuthTokenHeader();   
+
+    return this.http.post(`${this.baseurl}/search`, requestBody , { headers });
+  }
+
+
   constructor(public http:HttpClient, public router:Router, private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();
       this.http.get<Book>("http://localhost:8080/Book", { headers }).subscribe(data=>{

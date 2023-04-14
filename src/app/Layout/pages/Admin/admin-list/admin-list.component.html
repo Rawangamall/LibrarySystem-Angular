@@ -1,0 +1,91 @@
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap mb-sm-4 align-items-start">
+            <div class="mr-auto mb-2 d-lg-block mb-3">
+                <h2 class="text-black font-w700 mb-0">Admin</h2>
+                <p class="mb-0">Lorem ipsum dolor sit amet </p>
+            </div>
+            <div class="dashboard_bar mb-3">
+                <div class="input-group search-area right d-lg-inline-flex d-none  mr-5">
+                    <input type="text" class="form-control" placeholder="Search here..">
+                    <div class="input-group-append">
+                        <a href="javascript:void(0);" class="input-group-text">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.7871 22.7761L17.9548 16.9437C19.5193 15.145 20.4665 12.7982 20.4665 10.2333C20.4665 4.58714 15.8741 0 10.2333 0C4.58714 0 0 4.59246 0 10.2333C0 15.8741 4.59246 20.4665 10.2333 20.4665C12.7982 20.4665 15.145 19.5193 16.9437 17.9548L22.7761 23.7871C22.9144 23.9255 23.1007 24 23.2816 24C23.4625 24 23.6488 23.9308 23.7871 23.7871C24.0639 23.5104 24.0639 23.0528 23.7871 22.7761ZM1.43149 10.2333C1.43149 5.38004 5.38004 1.43681 10.2279 1.43681C15.0812 1.43681 19.0244 5.38537 19.0244 10.2333C19.0244 15.0812 15.0812 19.035 10.2279 19.035C5.38004 19.035 1.43149 15.0865 1.43149 10.2333Z"
+                                    fill="#A4A4A4"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/Admins/add" class="btn btn-primary btn-rounded mb-3"><i class="fa fa-user-plus mr-3"></i>New Admin</a>
+            <!-- Add Order -->
+        </div>
+        <div class="row" >
+            <div class="col-lg-6" *ngFor="let item of Adms">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="assets/images/card/2.png" alt="Card image cap">
+                    <div class="card-header">
+                        <h5 class="card-title"> {{item.firstName}}</h5><span style="font-size: larger;font-weight: bolder;"><span style="color: red;">Role:</span>{{item.Role}}</span>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-danger  mr-2" (click)="deleteAdmin(item._id)">Delete</button>
+                       <a href="Admin/details/{{item._id}}"  class="btn btn-primary" >Details</a>
+                    </div>
+                    <div class="card-footer">
+                        <!-- social icons  facebook , twitter , youtube , linkedin , instgram -->
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" class="text-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" class="text-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" class="text-youtube">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" class="text-linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" class="text-instagram">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+            <!-- 11 -->
+            
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-circle ">
+                <li class="page-item page-indicator">
+                    <a class="page-link" href="javascript:void(0)">
+                        <i class="la la-angle-left"></i></a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                <li class="page-item page-indicator">
+                    <a class="page-link" href="javascript:void(0)">
+                        <i class="la la-angle-right"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

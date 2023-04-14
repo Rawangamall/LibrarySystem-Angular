@@ -1,0 +1,86 @@
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="profile card card-body px-3 pt-3 pb-0">
+                    <div class="profile-head">
+                        <div class="photo-content">
+                            <div class="cover-photo"></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-photo">
+                                <!-- <img 
+                                src="assets/images/users/defaultProfilePic.jpg"
+                                class="img-fluid rounded-circle"
+                                    alt=""> -->
+                            </div>
+                            <div class="profile-details">
+                                <div class="profile-name px-3 pt-2">
+                                    <h4 class="text-primary mb-0">{{BAdms.firstName}} {{BAdms.lastName}}</h4>
+                                    <p>Basic Admin</p>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="profile-tab">
+                            <div class="custom-tab-1">
+                                <div class="profile-personal-info"><br>
+                                    <h4 class="text-primary mb-4">Personal Information</h4>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Name <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{BAdms.firstName}} {{BAdms.lastName}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Email <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{BAdms.email}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Birthdate <span class="pull-right">:</span>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{BAdms.birthdate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">HireDate <span
+                                                    class="pull-right">:</span></h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{BAdms.hireDate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-3 col-5">
+                                            <h5 class="f-w-500">Salary <span
+                                                    class="pull-right">:</span></h5>
+                                        </div>
+                                        <div class="col-sm-9 col-7"><span>{{BAdms.salary}}</span>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="shopping-cart  mb-3 mr-3">
+                                    <a class="btn btn-primary" href="BasicAdmin/edit/{{BAdms._id}}"><i class="fa fa-edit mr-2"></i>Edit</a>
+                                </div>
+                            </div>
+            </div>
+        </div>
+    </div>
+</div>
