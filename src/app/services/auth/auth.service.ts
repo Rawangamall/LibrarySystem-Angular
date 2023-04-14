@@ -71,10 +71,8 @@ export class AuthService {
         return decodedToken.email;
       }
       
-      //   logout() {
-      //     localStorage.removeItem('authToken');
-      //     localStorage.removeItem('role');
-      //     window.location.href = '/login';
-      //   }
+        logout() {
+          localStorage.removeItem('authToken');
+        }
       
 } //class

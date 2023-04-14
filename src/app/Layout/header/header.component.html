@@ -155,7 +155,7 @@ Header start
                     <a class="ml-2"  routerLink="/profile/{{item._id}}">Profile </a>
                   </div>
                 </a>
-                <a href="page-login.html" class="dropdown-item ai-icon">
+                <a  class="dropdown-item ai-icon" (click)="redirectToLogin()">
                   <svg
                     id="icon-logout"
                     xmlns="http://www.w3.org/2000/svg"

@@ -22,4 +22,8 @@ export class HeaderComponent {
     });
     // For admins also
 }
+redirectToLogin() {
+  this.authService.logout();
+  this.router.navigate(['/login']);
+}
 }
