@@ -56,6 +56,8 @@ import { OwnerBAadmin , OwnerBAadminEmp ,BAdminEmp , BAadmin} from 'src/app/serv
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginappComponent },
+
   { path: '', component: DashboardComponent ,canActivate: [OwnerBAadminEmp]},
   { path: 'member', component: MemberComponent ,canActivate: [OwnerBAadminEmp]},
   { path: 'editmember/:_id', component: EditmemberComponent ,canActivate: [BAdminEmp]},
@@ -91,12 +93,6 @@ const routes: Routes = [
   { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent},
   { path: '**', component: BasicAdminListComponent },
 
-
-
-
-
-
-  { path: 'login', component: LoginappComponent },
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Basicadmin} from '../models/basicadmin';
 import { Observable } from 'rxjs/internal/Observable';
 //import { Basicadmin } from '../models/basicadmin';
+import { AuthService } from '../services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,25 +14,37 @@ export class BasicAdminService {
   
 
   getAllBasicAdmins(): Observable<Basicadmin[]>{
-        return this.http.get<Basicadmin[]>(this.baseURL11);
+    const headers = this.authService.setAuthTokenHeader();   
+
+        return this.http.get<Basicadmin[]>(this.baseURL11 , { headers });
       }
   getOneBasicAdmin(id:number): Observable<Basicadmin>{
-        return this.http.get<Basicadmin>(this.baseURL22+id);
+    const headers = this.authService.setAuthTokenHeader();   
+
+        return this.http.get<Basicadmin>(this.baseURL22+id , { headers });
       }
   
   addBasicAdmin(badms:Basicadmin){
-        return this.http.post<Basicadmin>(this.baseURL11,badms);
+        const headers = this.authService.setAuthTokenHeader();   
+
+        return this.http.post<Basicadmin>(this.baseURL11,badms , { headers });
       }
   deleteBasicAdminByID(id:number){
+        const headers = this.authService.setAuthTokenHeader();   
+
         location.reload();
-        return this.http.delete(this.baseURL22+id);
+        return this.http.delete(this.baseURL22+id , { headers });
       }
   updateBasicAdmin(badm:Basicadmin,id:number){
-        // console.log(this.baseURL2+id,adm);
-         return this.http.put<Basicadmin>(this.baseURL22+id,badm);
+    const headers = this.authService.setAuthTokenHeader();   
+
+         console.log(this.baseURL22+id,badm);
+         return this.http.put<Basicadmin>(this.baseURL22+id,badm , { headers });
        }
-  constructor(public http:HttpClient) {
-    this.http.get<Basicadmin>("http://localhost:8080/Basics").subscribe(data=>{
+  constructor(public http:HttpClient , private authService: AuthService) {
+    const headers = this.authService.setAuthTokenHeader();   
+
+    this.http.get<Basicadmin>("http://localhost:8080/Basics", { headers }).subscribe(data=>{
       console.log(data);
     })
    }
