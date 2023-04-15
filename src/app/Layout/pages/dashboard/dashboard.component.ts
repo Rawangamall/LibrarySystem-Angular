@@ -6,6 +6,7 @@ import { Book } from 'src/app/models/book';
 import { Member } from 'src/app/models/member.model';
 import { BookService } from 'src/app/services/book.service';
 import { MemberService } from 'src/app/services/member.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,7 @@ export class DashboardComponent {
   constructor(public bookService:BookService,public memberService:MemberService, public router:Router){
   }
   ngOnInit(){
+
     // New Arrived Books
     this.bookService.newArrivedBooks().subscribe(data=>{
       this.newArrivedBooks = data;

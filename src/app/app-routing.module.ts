@@ -56,9 +56,10 @@ import {Owner,OwnerBA , OwnerBAadmin , OwnerBAadminEmp ,BAdminEmp , BAadmin} fro
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginappComponent },
 
-  { path: '', component: DashboardComponent ,canActivate: [OwnerBAadminEmp]},
+  { path: 'dashboard', component: DashboardComponent ,canActivate: [OwnerBAadminEmp]},
   { path: 'member', component: MemberComponent ,canActivate: [OwnerBAadminEmp]},
   { path: 'editmember/:_id', component: EditmemberComponent ,canActivate: [BAdminEmp]},
   { path: 'member-add', component: MemberAddComponent ,canActivate: [BAdminEmp]},

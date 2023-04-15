@@ -3,7 +3,6 @@ import { Component , ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Member } from 'src/app/models/member.model';
 import { MemberService } from 'src/app/services/member.service';
-import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({

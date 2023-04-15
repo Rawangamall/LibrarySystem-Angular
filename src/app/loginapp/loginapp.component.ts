@@ -48,7 +48,7 @@ export class LoginappComponent {
     if(this.errorMessage == ''){
     this.authService.login(this.email, this.password)
   }
- // this.router.navigate(['']);
+  this.router.navigate(['dashboard']);
 
   }
 
