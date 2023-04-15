@@ -17,7 +17,7 @@ export class EditmemberComponent
   email: string ='';
   password: string ='';
   errorMessage: string[] = [];
-  birthdate = new FormControl('', Validators.required);
+  // birthdate = new FormControl('', Validators.required);
 
   validateEmail() {
     const emailInput =  this.member.email;
@@ -28,7 +28,6 @@ export class EditmemberComponent
     const isNameValid = this.validatNname();
     const isValidphone = this.validatePhone();
     const isValidaddress = this.validatAddress();
-    // const isValidbirthdate = this.validateBirthday();
 
   this.errorMessage = [];
 
@@ -58,9 +57,10 @@ export class EditmemberComponent
     if(!isValidaddress){
       this.errorMessage.push('Enter a valid address that contains only letters');
     }
-    // if(!isValidbirthdate){
-    //   this.errorMessage.push('Enter a valid birthdate');
-    // }
+    if(this.member.birthdate == ""){
+      this.errorMessage.push('Enter a valid birthdate ');
+
+    }
     this.errorMessage.join(' ');
 
 }

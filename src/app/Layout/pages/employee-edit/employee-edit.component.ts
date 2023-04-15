@@ -24,7 +24,6 @@ export class EmployeeEditComponent {
     const isPasswordValid = this.validatePassword();
     const isNameValid = this.validatNname();
     const isValidsalary = this.validateSalary();
-    // const isValidbirthdate = this.validateBirthday();
 
   this.errorMessage = [];
 
@@ -51,9 +50,10 @@ export class EmployeeEditComponent {
     if(!isValidsalary){
       this.errorMessage.push('Enter a valid salary that contains only numbers');
     }
-    // if(!isValidbirthdate){
-    //   this.errorMessage.push('Enter a valid birthdate');
-    // }
+    if(this.emp.birthdate == ""){
+      this.errorMessage.push('Enter a valid birthdate ');
+
+    }
     this.errorMessage.join(' ');
 
 
@@ -132,24 +132,24 @@ export class EmployeeEditComponent {
     }
       @ViewChild('salaryInput', { static: true }) salaryInput!: ElementRef;
     
-      validateBirthday() {
+      // validateBirthday() {
       
-        const BirthdayInput = this.emp.birthdate;
+      //   const BirthdayInput = this.emp.birthdate;
         
-        const dateRegex =/^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/([0-9]{4})$/;
-        const isValiddate= dateRegex.test(BirthdayInput);
-        const birthdateField = document.getElementsByName('birthdate')[0] ;
+      //   const dateRegex =/^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/([0-9]{4})$/;
+      //   const isValiddate= dateRegex.test(BirthdayInput);
+      //   const birthdateField = document.getElementsByName('birthdate')[0] ;
     
-      if(isValiddate == true ){      
-        birthdateField.classList.add('is-valid');
-        birthdateField.classList.remove('is-invalid');
-      }else{
-        birthdateField.classList.remove('is-valid');
-        birthdateField.classList.add('is-invalid');
-      }
-        return isValiddate;
-      }
-        @ViewChild('BirthdayInput', { static: true }) BirthdayInput!: ElementRef;
+      // if(isValiddate == true ){      
+      //   birthdateField.classList.add('is-valid');
+      //   birthdateField.classList.remove('is-invalid');
+      // }else{
+      //   birthdateField.classList.remove('is-valid');
+      //   birthdateField.classList.add('is-invalid');
+      // }
+      //   return isValiddate;
+      // }
+      //   @ViewChild('BirthdayInput', { static: true }) BirthdayInput!: ElementRef;
       
   date=Date.now();
   date2=this.date.toString();

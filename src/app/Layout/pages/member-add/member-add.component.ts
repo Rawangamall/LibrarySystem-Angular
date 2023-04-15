@@ -56,9 +56,10 @@ export class MemberAddComponent {
     if(!isValidaddress){
       this.errorMessage.push('Enter a valid address that contains only letters');
     }
-    // if(!isValidbirthdate){
-    //   this.errorMessage.push('Enter a valid birthdate');
-    // }
+    if(this.member.birthdate == ""){
+      this.errorMessage.push('Enter a valid birthdate ');
+
+    }
     this.errorMessage.join(' ');
 
 }
