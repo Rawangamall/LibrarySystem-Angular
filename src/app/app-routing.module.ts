@@ -87,8 +87,8 @@ const routes: Routes = [
   { path: 'Admin/details/:_id', component: AdminDetailsComponent ,canActivate: [OwnerBA]},
   { path: 'Admin/edit/:_id', component: AdminEditComponent ,canActivate: [OwnerBA]},
   
-  { path: 'BasicAdmin', component: BasicAdminListComponent },
-  { path: 'BasicAdmin/add', component: BasicAdminAddComponent }, //,canActivate: [Owner]
+  { path: 'BasicAdmin', component: BasicAdminListComponent ,canActivate: [Owner]},
+  { path: 'BasicAdmin/add', component: BasicAdminAddComponent ,canActivate: [Owner]},
   { path: 'BasicAdmin/details/:_id', component:BADetailsComponent ,canActivate: [OwnerBA]},
   { path: 'BasicAdmin/edit/:_id', component:BasicAdminEditComponent ,canActivate: [OwnerBA]},
   { path: '**', component: BasicAdminListComponent },
