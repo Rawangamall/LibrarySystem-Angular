@@ -54,7 +54,6 @@ export class AdminEditComponent {
     if(!isValidrole){
       this.errorMessage.push('Enter a valid role that contains only letters');
     }
-  
     if(this.adm.birthdate == ""){
       this.errorMessage.push('Enter a valid birthdate ');
 

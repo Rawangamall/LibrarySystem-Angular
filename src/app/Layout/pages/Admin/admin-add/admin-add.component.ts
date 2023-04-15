@@ -14,7 +14,6 @@ export class AdminAddComponent {
 
   email: string ='';
   password: string ='';
-  // role:string ='';
   errorMessage: string[] = [];
   birthdate = new FormControl('', Validators.required);
 
@@ -27,7 +26,6 @@ export class AdminAddComponent {
     const isNameValid = this.validatNname();
     const isValidsalary = this.validateSalary();
     const isValidrole = this.validatRole();
-    // const isValidbirthdate = this.validateBirthday();
 
   this.errorMessage = [];
 
@@ -62,9 +60,7 @@ export class AdminAddComponent {
       this.errorMessage.push('Enter a valid birthdate ');
 
     }
-    // if(!isValidbirthdate){
-    //   this.errorMessage.push('Enter a valid birthdate');
-    // }
+  
     this.errorMessage.join(' ');
 
 }
@@ -140,25 +136,7 @@ export class AdminAddComponent {
       return isValidsalary;
     }
       @ViewChild('salaryInput', { static: true }) salaryInput!: ElementRef;
-    
-      // validateBirthday() {
-      //   const BirthdayInput = this.adm.birthdate;
-        
-      //   const dateRegex =/^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/([0-9]{4})$/;
-      //   const isValiddate= dateRegex.test(BirthdayInput);
-      //   const birthdateField = document.getElementsByName('birthdate')[0] ;
-    
-      // if(isValiddate == true ){      
-      //   birthdateField.classList.add('is-valid');
-      //   birthdateField.classList.remove('is-invalid');
-      // }else{
-      //   birthdateField.classList.remove('is-valid');
-      //   birthdateField.classList.add('is-invalid');
-      // }
-      //   return isValiddate;
-      // }
-      //   @ViewChild('BirthdayInput', { static: true }) BirthdayInput!: ElementRef;
-
+ 
     validatRole() {
       const RoleInput = this.adm.Role.toString();;
       const roleField = document.getElementsByName('role')[0] ;
