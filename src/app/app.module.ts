@@ -47,6 +47,7 @@ import { BasicAdminAddComponent } from './Layout/pages/BasicAdmin/basic-admin-ad
 import { BasicAdminListComponent } from './Layout/pages/BasicAdmin/basic-admin-list/basic-admin-list.component';
 import { AdminEditComponent } from './Layout/pages/Admin/admin-edit/admin-edit.component';
 import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-edit/basic-admin-edit.component';
+import { FirstLoginComponent } from './first-login/first-login.component';
 
 
 @NgModule({
@@ -87,7 +88,7 @@ import { BasicAdminEditComponent } from './Layout/pages/BasicAdmin/basic-admin-e
     BookOperationBorrowComponent,
     BookOperationReadComponent,
     FilteredBooksComponent,   
-     MemberProfileComponent,
+     MemberProfileComponent, FirstLoginComponent,
     
   ],
   

@@ -14,15 +14,17 @@ export class LoginappComponent {
 
   validateEmail() {
     const emailInput = this.email;
-    const isPasswordValid = this.validatePassword();
+    // const isPasswordValid = this.validatePassword();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValidEmail = emailRegex.test(emailInput);
   
     if (!isValidEmail) {
       this.errorMessage = 'Please enter a valid email address';
-    } else if (!isPasswordValid) {
-      this.errorMessage = 'Please enter a valid password(at least 8 characters long and contains a digit)';
-    }else{
+    }if(this.password == "")
+    {
+      this.errorMessage = 'Please enter a valid password(required)'; 
+    }
+    else{
       this.errorMessage='';
     }
 }
@@ -30,17 +32,17 @@ export class LoginappComponent {
   // Use ViewChild to get a reference to the email input element
   @ViewChild('email', { static: true }) emailInput!: ElementRef;
   
-  validatePassword() {
-    const passwordInput = this.password;
+  // validatePassword() {
+  //   const passwordInput = this.password;
   
-    const passwordRegex = /^(?=.*\d).{8,}$/;
-    const isValidPassword = passwordRegex.test(passwordInput);
+  //   const passwordRegex = /^(?=.*\d).{8,}$/;
+  //   const isValidPassword = passwordRegex.test(passwordInput);
   
-    return isValidPassword;
-  }
+  //   return isValidPassword;
+  // }
   
-  // Use ViewChild to get a reference to the password input element
-  @ViewChild('passwordInput', { static: true }) passwordInput!: ElementRef;
+  // // Use ViewChild to get a reference to the password input element
+  // @ViewChild('passwordInput', { static: true }) passwordInput!: ElementRef;
  
   constructor(private authService: AuthService , private router: Router) {}
 
@@ -48,8 +50,6 @@ export class LoginappComponent {
     if(this.errorMessage == ''){
     this.authService.login(this.email, this.password)
   }
-  this.router.navigate(['dashboard']);
-
   }
 
 }

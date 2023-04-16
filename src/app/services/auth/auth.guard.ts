@@ -121,10 +121,11 @@ export class OwnerBAadminEmp implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     const role = this.authService.getRole();
+    console.log(role);
     if (role == "BasicAdmin" || role == "Admin" || role == "Owner" || role == "Employee") {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
       return false;
     }
   }

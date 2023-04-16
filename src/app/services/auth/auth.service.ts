@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 
 interface DecodedToken {
+  _id: any;
+  password: any;
   id: string;
   email: string;
   role: string;
@@ -26,7 +28,7 @@ export class AuthService {
         data => {
           // Save the authentication token or user data to local storage
           localStorage.setItem('authToken', data.token);    
-             window.location.href = '';
+             window.location.href = 'dashboard';
         });
       }
       
@@ -47,10 +49,19 @@ export class AuthService {
           throw new Error('authToken not found in localStorage');
         }
         const decodedToken: DecodedToken = jwt_decode(authtoken);
-        console.log(decodedToken.role);
         return decodedToken.role;
       }
       
+      getPassword(): string{
+        const authtoken = localStorage.getItem('authToken');
+        if (!authtoken) {
+          throw new Error('authToken not found in localStorage');
+        }
+        const decodedToken: DecodedToken = jwt_decode(authtoken);
+        console.log(decodedToken.password);
+        return decodedToken.password;
+      }
+
        islogged(): boolean {
         const userToken = localStorage.getItem('authToken');
         if (userToken) {
@@ -65,8 +76,9 @@ export class AuthService {
           throw new Error('authToken not found in localStorage');
         }
         const decodedToken: DecodedToken = jwt_decode(authtoken);
-        console.log(decodedToken.id);
-        return decodedToken.id;
+        const user = decodedToken._id
+        console.log(user);
+        return user;
       }
       
       getEmail(): string{
@@ -75,7 +87,7 @@ export class AuthService {
           throw new Error('authToken not found in localStorage');
         }
         const decodedToken: DecodedToken = jwt_decode(authtoken);
-        console.log(decodedToken.email);
+        console.log(decodedToken);
         return decodedToken.email;
       }
       

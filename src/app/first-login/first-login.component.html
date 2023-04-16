@@ -1,0 +1,38 @@
+<div class="authincation h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col-md-6">
+    <div class="authincation-content">
+        <div class="row no-gutters">
+            <div class="col-xl-12">
+                <div class="auth-form">
+                    <div class="text-center mb-3">
+                        <img src="public/images/logo-full.png" alt="">
+                    </div>
+                    <h4 class="text-center mb-4">Update Your Account to Login</h4>
+                    <form (ngSubmit)="onSubmit()" >
+
+                        <div class="form-group">
+                            <label class="mb-1"><strong>New Password</strong></label>
+                            <input type="password"  class="form-control" name="password" placeholder="Password" value="{{emp.password}}"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <!-- <div class="form-group col-md-6">
+                            <label>Image</label>
+                            <input class="form-control" type="file" placeholder="Image" [(ngModel)]="image" [ngModelOptions]="{standalone: true}"
+                                class="form-control">
+                        </div> -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-block" (click)="validatePassword();">Sign Me In</button>
+                        </div>
+
+                        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+

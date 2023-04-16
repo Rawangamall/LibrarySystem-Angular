@@ -20,7 +20,7 @@ export class BasicAdminService {
       }
   getOneBasicAdmin(id:number): Observable<Basicadmin>{
     const headers = this.authService.setAuthTokenHeader();   
-
+console.log(id);
         return this.http.get<Basicadmin>(this.baseURL22+id , { headers });
       }
   
