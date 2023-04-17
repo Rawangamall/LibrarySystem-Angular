@@ -75,7 +75,7 @@ const routes: Routes = [
   { path: 'Book/add', component: BookAddComponent ,canActivate: [OwnerBAadmin , ValidGuard]},
   { path: 'employeeEdit/:_id', component: EmployeeEditComponent ,canActivate: [OwnerBAadminEmp , ValidGuard]},
   { path: 'bookavilablty', component: BookavilabltyComponent ,canActivate: [BAdminEmp , ValidGuard]},
-  { path: 'bookedit/:id', component: EditbookComponent ,canActivate: [BAadmin , , ValidGuard]},
+  { path: 'bookedit/:id', component: EditbookComponent ,canActivate: [BAadmin , ValidGuard]},
   { path: 'bookdetails/:id', component: BookdetailsComponent ,canActivate: [OwnerBAadminEmp , ValidGuard]},
   { path: 'operation', component: OperationComponent ,canActivate: [BAdminEmp , ValidGuard]},
   { path: 'Book/read/:_id', component: BookOperationReadComponent ,canActivate: [BAdminEmp , ValidGuard]},
