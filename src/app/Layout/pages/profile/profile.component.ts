@@ -17,6 +17,7 @@ export class ProfileComponent {
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
       const empId = params['id']
+      console.log(empId , "in profile")
       this.employeeService.getOneEmployee(empId).subscribe(data=>{
         this.emp = data;
         

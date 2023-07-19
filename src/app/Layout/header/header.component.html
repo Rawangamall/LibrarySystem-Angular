@@ -120,7 +120,7 @@ Header start
                   class="rounded-circle"
                 />
                 <div class="header-info" >
-                  <div *ngFor="let items of emps"><span *ngIf="items.email===email">{{items.firstName}}</span></div>
+                  <div ><span *ngIf="loggedOne.email===email">{{loggedOne.firstName}}</span></div>
                   <small>{{role}}</small>
                 </div>
                 <i
@@ -128,7 +128,7 @@ Header start
                   aria-hidden="true"
                 ></i>
               </a>
-              <div class="dropdown-menu dropdown-menu-right" *ngFor="let item of emps">
+              <div class="dropdown-menu dropdown-menu-right">
                 <a
                   href="/profile"
                   class="dropdown-item ai-icon"
@@ -151,9 +151,10 @@ Header start
                     ></path>
                     <circle cx="12" cy="7" r="4"></circle>
                   </svg>
-                  <div *ngIf="item.email===email" >
-                    <a class="ml-2"  routerLink="/profile/{{item._id}}">Profile </a>
-                  </div>
+                  <ng-container *ngIf="loggedOne?.email === email && loggedOne?._id">
+                    <a class="ml-2" [routerLink]="['/profile', loggedOne._id]">Profile</a>
+                  </ng-container>
+                  
                 </a>
                 <a  class="dropdown-item ai-icon" (click)="redirectToLogin()">
                   <svg
