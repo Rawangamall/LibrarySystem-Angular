@@ -16,19 +16,18 @@ export class FirstLoginService {
   adminURL = 'http://localhost:8080/firstLoginAdmin/';
   empURL = 'http://localhost:8080/firstLoginEmp/';
 
-updateAdmin(adm:Admin,id:number){
-const headers = this.authService.setAuthTokenHeader();   
-return this.http.put<Admin>(this.adminURL+id,adm , { headers });
+updateAdmin(password:String,id:number){
+const headers = this.authService.setAuthTokenHeader(); 
+const requestBody = { password: password };
+
+return this.http.patch<Admin>(this.adminURL+id,requestBody , { headers });
 }
 
-updateBasicAdmin(badm:Basicadmin,id:number){
+updateEmp(password:String,id:number){
   const headers = this.authService.setAuthTokenHeader();   
-  return this.http.put<Basicadmin>(this.adminURL+id,badm , { headers });
-  }
+  const requestBody = { password: password };
 
-updateEmp(emp:Employee,id:number){
-  const headers = this.authService.setAuthTokenHeader();   
-  return this.http.put<Employee>(this.empURL+id,emp , { headers });
+  return this.http.patch<Employee>(this.empURL+id,requestBody , { headers });
 }
 
 constructor(public http:HttpClient  , private authService: AuthService) { }

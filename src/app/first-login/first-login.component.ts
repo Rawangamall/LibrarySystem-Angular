@@ -32,20 +32,16 @@ export class FirstLoginComponent {
 
       this.errorMessage = 'Enter a valid password (at least 8 characters long and contains a digit';
     }else{
-         passField.classList.add('is-valid');
+      passField.classList.add('is-valid');
       passField.classList.remove('is-invalid');  
-
       this.errorMessage='';
+
     }
   }
     @ViewChild('passwordInput', { static: true }) passwordInput!: ElementRef;
  
  role = this.authService.getRole();
  userId = Number(this.authService.getID());
-
-    adm:Admin=new Admin(0,"","","","","","",0,"","");
-    badm:Basicadmin =new Basicadmin (0,"","","","","","",0,"","");
-    emp:Employee=new Employee(0,"","","","","","",0,"");
 
   constructor(private authService: AuthService , private router: Router ,public  BasicAdminService: BasicAdminService, public adminService:AdminService , public firstloginServices:FirstLoginService ,public route: ActivatedRoute , public EmployeeServices: EmployeeService) {}
 
@@ -55,61 +51,36 @@ export class FirstLoginComponent {
 
   }
   update(){
-    if(this.role == "Admin"){
-    this.firstloginServices.updateAdmin(this.adm,this.adm._id).subscribe(data => {
+
+    if(this.role == "Admin" || this.role == "BasicAdmin" || this.role == "Owner"){
+    this.firstloginServices.updateAdmin(this.password,this.userId).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('Admin/details/'+this.adm._id);
     })
+    this.navigateToLogin();
+
   }
-  else if(this.role == "BasicAdmin"){
-    this.firstloginServices.updateBasicAdmin(this.badm,this.userId).subscribe(data => {
-      console.log(data);
-    })
-   }
 
   else if(this.role == "Employee"){
-    this.firstloginServices.updateEmp(this.emp,this.userId).subscribe(data => {
-      console.log(data);
+    this.firstloginServices.updateEmp(this.password,this.userId).subscribe(data => {
     })
+    this.navigateToLogin();
    }
+
   }  
 
-  getData(){
-    if(this.role == "Admin"){
-      this.adminService.getOneAdmin(this.userId).subscribe(data=>{
-        data.password = this.password;
-        this.adm = data;
-      })
-    }
-    else if(this.role == "BasicAdmin"){
-      console.log("here"+"!!"+this.password);
 
-      this.BasicAdminService.getOneBasicAdmin(this.userId).subscribe(data=>{
-        data.password = this.password;
-        console.log(data.password);
-        this.badm = data;
-      })
-  }
-  else if(this.role == "Employee"){
-    console.log("here"+"!!"+this.password);
 
-    this.EmployeeServices.getOneEmployee(this.userId).subscribe(data=>{
-      data.password = this.password;
-      console.log(data.password);
-      this.emp = data;
-    })
+navigateToLogin() {
+  this.authService.logout();
+  this.router.navigate(['/login']);
 }
-}
+
   onSubmit() {
 
     if(this.errorMessage.length == 0){
       
-      this.getData();
       this.update();
-
-    // this.authService.logout();
-    // this.router.navigate(['/login']);
-      
+   
       }
     
     }
