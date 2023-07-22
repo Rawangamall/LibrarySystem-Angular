@@ -169,8 +169,8 @@ export class BasicAdminEditComponent {
   update(){
     this.BasicAdminService.updateBasicAdmin(this.badm,this.badm._id).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('BasicAdmin');
-      // this.router.navigateByUrl('profile/'+this.emp._id);
+    //  this.router.navigateByUrl('BasicAdmin');
+       this.router.navigateByUrl('BasicAdmin/details/'+this.badm._id);
 
     })
   }  

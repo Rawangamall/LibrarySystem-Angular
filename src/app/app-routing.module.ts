@@ -77,7 +77,7 @@ const routes: Routes = [
   { path: 'bookavilablty', component: BookavilabltyComponent ,canActivate: [BAdminEmp , ValidGuard]},
   { path: 'bookedit/:id', component: EditbookComponent ,canActivate: [BAadmin , ValidGuard]},
   { path: 'bookdetails/:id', component: BookdetailsComponent ,canActivate: [OwnerBAadminEmp , ValidGuard]},
-  { path: 'operation', component: OperationComponent ,canActivate: [BAdminEmp , ValidGuard]},
+  { path: 'operation', component: OperationComponent ,canActivate: [OwnerBAadminEmp , ValidGuard]},
   { path: 'Book/read/:_id', component: BookOperationReadComponent ,canActivate: [BAdminEmp , ValidGuard]},
   { path: 'Book/borrow/:id', component: BookOperationBorrowComponent ,canActivate: [BAdminEmp , ValidGuard]},
   { path: 'error400', component: Error400Component },
@@ -89,7 +89,7 @@ const routes: Routes = [
   { path: 'Admins', component: AdminListComponent ,canActivate: [OwnerBA , ValidGuard]},
   { path: 'Admins/add', component: AdminAddComponent ,canActivate: [OwnerBA , ValidGuard]},
   { path: 'Admin/details/:_id', component: AdminDetailsComponent ,canActivate: [OwnerBA , ValidGuard]},
-  { path: 'Admin/edit/:_id', component: AdminEditComponent ,canActivate: [OwnerBA , ValidGuard]},
+  { path: 'Admin/edit/:_id', component: AdminEditComponent ,canActivate: [OwnerBAadmin , ValidGuard]},
   
   { path: 'BasicAdmin', component: BasicAdminListComponent ,canActivate: [Owner , ValidGuard]},
   { path: 'BasicAdmin/add', component: BasicAdminAddComponent ,canActivate: [Owner , ValidGuard]},

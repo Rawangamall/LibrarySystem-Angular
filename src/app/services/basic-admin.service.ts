@@ -35,12 +35,13 @@ console.log(id);
         location.reload();
         return this.http.delete(this.baseURL22+id , { headers });
       }
+
   updateBasicAdmin(badm:Basicadmin,id:number){
     const headers = this.authService.setAuthTokenHeader();   
-
-         console.log(this.baseURL22+id,badm);
          return this.http.put<Basicadmin>(this.baseURL22+id,badm , { headers });
+         
        }
+
   constructor(public http:HttpClient , private authService: AuthService) {
     const headers = this.authService.setAuthTokenHeader();   
 
